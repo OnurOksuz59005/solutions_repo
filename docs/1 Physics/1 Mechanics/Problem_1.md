@@ -38,6 +38,7 @@ $y(t) = v_0 \sin\theta \cdot t - \frac{1}{2}gt^2$
 ### Family of Solutions
 
 These equations represent a family of solutions parameterized by:
+
 - Initial velocity magnitude $v_0$
 - Launch angle $\theta$
 - Gravitational acceleration $g$
@@ -62,6 +63,7 @@ The range is then given by:
 $R = x(T) = v_0 \cos\theta \cdot T = v_0 \cos\theta \cdot \frac{2v_0 \sin\theta}{g} = \frac{v_0^2 \sin(2\theta)}{g}$
 
 This equation reveals that:
+
 1. The range is proportional to the square of the initial velocity.
 2. The range depends on the angle through the term $\sin(2\theta)$.
 3. The maximum range occurs when $\sin(2\theta) = 1$, which happens when $\theta = 45°$.
