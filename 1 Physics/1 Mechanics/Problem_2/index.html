@@ -196,19 +196,23 @@
 <h3 id="the-governing-equation">The Governing Equation</h3>
 <p>The motion of a forced damped pendulum is governed by the following nonlinear differential equation:</p>
 <div class="arithmatex">\[\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\sin\theta = A\cos(\omega_d t)\]</div>
-<p>where:
-- <span class="arithmatex">\(\theta\)</span> is the angular displacement from the vertical
-- <span class="arithmatex">\(b\)</span> is the damping coefficient
-- <span class="arithmatex">\(\omega_0^2 = g/L\)</span> is the natural frequency squared (where <span class="arithmatex">\(g\)</span> is the gravitational acceleration and <span class="arithmatex">\(L\)</span> is the pendulum length)
-- <span class="arithmatex">\(A\)</span> is the amplitude of the driving force
-- <span class="arithmatex">\(\omega_d\)</span> is the driving frequency
-- <span class="arithmatex">\(t\)</span> is time</p>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\theta\)</span> is the angular displacement from the vertical</li>
+<li><span class="arithmatex">\(b\)</span> is the damping coefficient</li>
+<li><span class="arithmatex">\(\omega_0^2 = g/L\)</span> is the natural frequency squared (where <span class="arithmatex">\(g\)</span> is the gravitational acceleration and <span class="arithmatex">\(L\)</span> is the pendulum length)</li>
+<li><span class="arithmatex">\(A\)</span> is the amplitude of the driving force</li>
+<li><span class="arithmatex">\(\omega_d\)</span> is the driving frequency</li>
+<li><span class="arithmatex">\(t\)</span> is time</li>
+</ul>
 <h3 id="small-angle-approximation">Small-Angle Approximation</h3>
 <p>For small angles, we can approximate <span class="arithmatex">\(\sin\theta \approx \theta\)</span>, which linearizes the equation:</p>
 <div class="arithmatex">\[\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\theta = A\cos(\omega_d t)\]</div>
-<p>This linear differential equation has a general solution consisting of two parts:
-1. The transient solution (complementary solution), which decays over time due to damping
-2. The steady-state solution (particular solution), which persists and represents the long-term behavior</p>
+<p>This linear differential equation has a general solution consisting of two parts:</p>
+<ol>
+<li>The transient solution (complementary solution), which decays over time due to damping</li>
+<li>The steady-state solution (particular solution), which persists and represents the long-term behavior</li>
+</ol>
 <h3 id="steady-state-solution">Steady-State Solution</h3>
 <p>The steady-state solution for the linearized equation is:</p>
 <div class="arithmatex">\[\theta(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega_d^2)^2 + b^2\omega_d^2}}\cos(\omega_d t - \phi)\]</div>
@@ -271,11 +275,13 @@
 <h3 id="electrical-circuits">Electrical Circuits</h3>
 <p>The forced damped pendulum is mathematically analogous to an RLC circuit with a driving voltage source. The equation:</p>
 <div class="arithmatex">\[L\frac{d^2Q}{dt^2} + R\frac{dQ}{dt} + \frac{1}{C}Q = V_0\cos(\omega t)\]</div>
-<p>has the same form as the linearized pendulum equation, where:
-- <span class="arithmatex">\(L\)</span> (inductance) corresponds to mass
-- <span class="arithmatex">\(R\)</span> (resistance) corresponds to damping
-- <span class="arithmatex">\(1/C\)</span> (inverse capacitance) corresponds to the spring constant
-- <span class="arithmatex">\(V_0\)</span> (voltage amplitude) corresponds to the driving force amplitude</p>
+<p>has the same form as the linearized pendulum equation, where:</p>
+<ul>
+<li><span class="arithmatex">\(L\)</span> (inductance) corresponds to mass</li>
+<li><span class="arithmatex">\(R\)</span> (resistance) corresponds to damping</li>
+<li><span class="arithmatex">\(1/C\)</span> (inverse capacitance) corresponds to the spring constant</li>
+<li><span class="arithmatex">\(V_0\)</span> (voltage amplitude) corresponds to the driving force amplitude</li>
+</ul>
 <h3 id="biological-systems">Biological Systems</h3>
 <p>Many biological processes exhibit oscillatory behavior that can be modeled as forced damped systems, including:</p>
 <ul>
