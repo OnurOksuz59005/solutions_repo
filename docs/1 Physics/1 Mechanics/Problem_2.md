@@ -15,6 +15,7 @@ The motion of a forced damped pendulum is governed by the following nonlinear di
 $$\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\sin\theta = A\cos(\omega_d t)$$
 
 where:
+
 - $\theta$ is the angular displacement from the vertical
 - $b$ is the damping coefficient
 - $\omega_0^2 = g/L$ is the natural frequency squared (where $g$ is the gravitational acceleration and $L$ is the pendulum length)
@@ -29,6 +30,7 @@ For small angles, we can approximate $\sin\theta \approx \theta$, which lineariz
 $$\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\theta = A\cos(\omega_d t)$$
 
 This linear differential equation has a general solution consisting of two parts:
+
 1. The transient solution (complementary solution), which decays over time due to damping
 2. The steady-state solution (particular solution), which persists and represents the long-term behavior
 
@@ -133,6 +135,7 @@ The forced damped pendulum is mathematically analogous to an RLC circuit with a 
 $$L\frac{d^2Q}{dt^2} + R\frac{dQ}{dt} + \frac{1}{C}Q = V_0\cos(\omega t)$$
 
 has the same form as the linearized pendulum equation, where:
+
 - $L$ (inductance) corresponds to mass
 - $R$ (resistance) corresponds to damping
 - $1/C$ (inverse capacitance) corresponds to the spring constant
