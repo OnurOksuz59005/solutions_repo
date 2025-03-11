@@ -13,6 +13,7 @@ What makes this topic particularly compelling is the number of free parameters i
 Let's start by deriving the equations of motion for a projectile from first principles. We'll consider a particle launched from the origin with an initial velocity $v_0$ at an angle $\theta$ with respect to the horizontal.
 
 The initial velocity components are:
+
 - Horizontal component: $v_{0x} = v_0 \cos\theta$
 - Vertical component: $v_{0y} = v_0 \sin\theta$
 
