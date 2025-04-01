@@ -1,9 +1,5 @@
 # Trajectories of a Freely Released Payload Near Earth
 
-## Motivation
-
-When an object is released from a moving rocket near Earth, its trajectory depends on initial conditions and gravitational forces. This scenario presents a rich problem, blending principles of orbital mechanics and numerical methods. Understanding the potential trajectories is vital for space missions, such as deploying payloads or returning objects to Earth.
-
 ## Theoretical Foundation
 
 ### Newton's Law of Universal Gravitation
@@ -35,7 +31,9 @@ Where:
 
 In Cartesian coordinates, this becomes:
 
-$$\frac{d^2x}{dt^2} = -\frac{GM_E}{r^3}x\frac{d^2y}{dt^2} = -\frac{GM_E}{r^3}y$$
+$$\frac{d^2x}{dt^2} = -\frac{GM_E}{r^3}x$$
+
+$$\frac{d^2y}{dt^2} = -\frac{GM_E}{r^3}y$$
 
 Where $r = \sqrt{x^2 + y^2}$.
 
@@ -59,175 +57,15 @@ Where the angular momentum per unit mass is $h = |\vec{r} \times \vec{v}|$.
 
 ## Types of Trajectories
 
-## Computational Model and Visualization
-
-<details>
-<summary>Click to view Python code for payload trajectory simulations and visualizations</summary>
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
-import os
-import imageio
-import tempfile
-from scipy.integrate import solve_ivp
-
-# Create directory for images if it doesn't exist
-image_dir = os.path.join('docs', '1 Physics', '2 Gravity', 'images')
-os.makedirs(image_dir, exist_ok=True)
-
-# Constants
-G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
-M_EARTH = 5.972e24  # Mass of Earth (kg)
-R_EARTH = 6.371e6  # Radius of Earth (m)
-
-# Function to calculate the gravitational acceleration
-def gravitational_acceleration(r, M=M_EARTH):
-    """Calculate the gravitational acceleration at distance r from a body of mass M.
-    
-    Args:
-        r: Distance from the center of the body (m)
-        M: Mass of the body (kg), defaults to Earth's mass
-        
-    Returns:
-        Gravitational acceleration (m/s^2)
-    """
-    return G * M / r**2
-
-# Function to compute the derivatives for the equations of motion
-def payload_dynamics(t, state, mu=G*M_EARTH):
-    """Compute the derivatives for the equations of motion of a payload in Earth's gravitational field.
-    
-    Args:
-        t: Time (s)
-        state: State vector [x, y, vx, vy]
-        mu: Gravitational parameter (G*M) (m^3/s^2)
-        
-    Returns:
-        Derivatives [dx/dt, dy/dt, dvx/dt, dvy/dt]
-    """
-    x, y, vx, vy = state
-    
-    # Calculate the distance from Earth's center
-    r = np.sqrt(x**2 + y**2)
-    
-    # Check if the payload has hit Earth's surface
-    if r <= R_EARTH:
-        return [0, 0, 0, 0]  # Stop the simulation if the payload hits Earth
-    
-    # Calculate the gravitational acceleration
-    a = mu / r**3
-    
-    # Return the derivatives
-    return [vx, vy, -a * x, -a * y]
-
-# Function to simulate the trajectory of a payload
-def simulate_trajectory(initial_position, initial_velocity, t_span, t_eval=None):
-    """Simulate the trajectory of a payload released near Earth.
-    
-    Args:
-        initial_position: Initial position vector [x, y] (m)
-        initial_velocity: Initial velocity vector [vx, vy] (m/s)
-        t_span: Time span for the simulation [t_start, t_end] (s)
-        t_eval: Times at which to evaluate the solution (s), defaults to None
-        
-    Returns:
-        Solution object from solve_ivp
-    """
-    # Initial state vector [x, y, vx, vy]
-    initial_state = [initial_position[0], initial_position[1], 
-                    initial_velocity[0], initial_velocity[1]]
-    
-    # Solve the initial value problem
-    solution = solve_ivp(
-        payload_dynamics,
-        t_span,
-        initial_state,
-        method='RK45',
-        t_eval=t_eval,
-        rtol=1e-8,
-        atol=1e-8
-    )
-    
-    return solution
-
-# Function to calculate orbital parameters
-def calculate_orbital_parameters(position, velocity, mu=G*M_EARTH):
-    """Calculate orbital parameters from position and velocity vectors.
-    
-    Args:
-        position: Position vector [x, y] (m)
-        velocity: Velocity vector [vx, vy] (m/s)
-        mu: Gravitational parameter (G*M) (m^3/s^2)
-        
-    Returns:
-        Dictionary containing orbital parameters
-    """
-    r = np.sqrt(position[0]**2 + position[1]**2)
-    v = np.sqrt(velocity[0]**2 + velocity[1]**2)
-    
-    # Specific energy
-    energy = 0.5 * v**2 - mu / r
-    
-    # Semi-major axis
-    if energy == 0:  # Parabolic orbit
-        a = float('inf')
-    else:
-        a = -mu / (2 * energy)
-    
-    # Angular momentum per unit mass
-    h_vec = np.cross(position, velocity)
-    h = np.abs(h_vec)  # For 2D, this is just the magnitude
-    
-    # Eccentricity
-    e = np.sqrt(1 + 2 * energy * h**2 / mu**2)
-    
-    # Orbit type
-    if e < 1e-10:  # Numerical tolerance for circular orbit
-        orbit_type = "Circular"
-    elif e < 1.0:
-        orbit_type = "Elliptical"
-    elif abs(e - 1.0) < 1e-10:  # Numerical tolerance for parabolic orbit
-        orbit_type = "Parabolic"
-    else:
-        orbit_type = "Hyperbolic"
-    
-    # Periapsis and apoapsis distances
-    if e < 1.0:  # Elliptical orbit
-        periapsis = a * (1 - e)
-        apoapsis = a * (1 + e)
-    elif e == 1.0:  # Parabolic orbit
-        periapsis = h**2 / (2 * mu)
-        apoapsis = float('inf')
-    else:  # Hyperbolic orbit
-        periapsis = a * (1 - e)  # Note: a is negative for hyperbolic orbits
-        apoapsis = float('inf')
-    
-    return {
-        "semi_major_axis": a,
-        "eccentricity": e,
-        "specific_energy": energy,
-        "angular_momentum": h,
-        "orbit_type": orbit_type,
-        "periapsis": periapsis,
-        "apoapsis": apoapsis
-    }
-```
-</details>
-
-The computational model simulates the trajectories of payloads released near Earth under the influence of gravity. It calculates orbital parameters such as eccentricity, specific energy, and angular momentum, and visualizes different types of trajectories through static plots and animations. The model demonstrates how initial conditions determine whether a payload will enter orbit, escape Earth's gravitational field, or reenter the atmosphere.
-### Circular Orbit
-
 A circular orbit occurs when the payload has exactly the right velocity to maintain a constant distance from Earth. The required velocity at a distance $r$ is:
 
 $$v_{circ} = \sqrt{\frac{GM_E}{r}}$$
 
 For a circular orbit, the eccentricity $e = 0$ and the specific energy $\varepsilon = -\frac{GM_E}{2r}$.
 
-![Circular Orbit](./images/circular_orbit.png)
+![Circular orbit trajectory](./images/circular_orbit.png)
 
-### Elliptical Orbit
+*Figure 1: Circular orbit of a payload around Earth with constant radius. The payload maintains a fixed distance from Earth at all times.*
 
 An elliptical orbit occurs when the payload has less than escape velocity but more than the minimum velocity needed to prevent collision with Earth. The eccentricity is between 0 and 1 ($0 < e < 1$).
 
@@ -235,57 +73,79 @@ The semi-major axis $a$ of the ellipse is related to the specific energy by:
 
 $$a = -\frac{GM_E}{2\varepsilon}$$
 
-![Elliptical Orbit](./images/elliptical_orbit.png)
+The periapsis (closest approach) and apoapsis (farthest approach) distances are:
 
-### Parabolic Trajectory
+$$r_{periapsis} = a(1-e)$$
+
+$$r_{apoapsis} = a(1+e)$$
+
+![Elliptical orbit trajectory](./images/elliptical_orbit.png)
+
+*Figure 2: Elliptical orbit showing varying distance from Earth with periapsis and apoapsis points. The orbit follows Kepler's laws with Earth at one focus of the ellipse.*
 
 A parabolic trajectory occurs when the payload has exactly escape velocity. The eccentricity $e = 1$ and the specific energy $\varepsilon = 0$.
 
 The escape velocity at a distance $r$ from Earth's center is:
 
-$$v_{esc} = \sqrt{\frac{2GM_E}{r}}$$
+$$v_{esc} = \sqrt{\frac{2GM_E}{r}} = \sqrt{2} \cdot v_{circ}$$
 
-![Parabolic Trajectory](./images/parabolic_trajectory.png)
+This represents 141% of circular velocity at the same radius.
 
-### Hyperbolic Trajectory
+For a parabolic trajectory, the semi-major axis $a$ is infinite, and the periapsis distance is:
+
+$$r_{periapsis} = \frac{h^2}{2GM_E}$$
+
+where $h$ is the specific angular momentum.
+
+![Parabolic trajectory](./images/parabolic_trajectory.png)
+
+*Figure 3: Parabolic trajectory showing a payload escaping Earth's gravity with zero excess velocity. This represents the boundary between bound and unbound orbits.*
 
 A hyperbolic trajectory occurs when the payload has greater than escape velocity. The eccentricity $e > 1$ and the specific energy $\varepsilon > 0$.
 
-![Hyperbolic Trajectory](./images/hyperbolic_trajectory.png)
+This typically occurs when the initial velocity is about 120% of escape velocity or approximately 170% of circular velocity at the same radius.
 
-### Reentry Trajectory
+The semi-major axis $a$ is negative for hyperbolic orbits, and the periapsis distance is:
+
+$$r_{periapsis} = a(1-e)$$
+
+The asymptotic velocity (velocity at infinite distance) is related to the specific energy by:
+
+$$v_{\infty} = \sqrt{2\varepsilon} = \sqrt{-\frac{\mu}{a}}$$
+
+![Hyperbolic trajectory](./images/hyperbolic_trajectory.png)
+
+*Figure 4: Hyperbolic trajectory showing a payload escaping Earth's gravity with excess velocity. The trajectory approaches an asymptotic direction as the payload moves away from Earth.*
 
 A reentry trajectory occurs when the payload has insufficient velocity to maintain orbit and intersects with Earth's surface. This is typically an elliptical orbit with a periapsis (closest approach) below Earth's surface.
 
-![Reentry Trajectory](./images/reentry_trajectory.png)
+![Reentry trajectory](./images/reentry_trajectory.png)
 
-## Comparison of Different Trajectories
+*Figure 5: Reentry trajectory showing a payload returning to Earth's surface. The trajectory intersects with Earth's atmosphere, leading to aerodynamic braking and eventual landing.*
+
+## Trajectory Analysis
 
 The following figure compares different types of trajectories for a payload released at the same position (300 km above Earth's surface) but with different initial velocities:
-
-![Trajectory Comparison](./images/trajectory_comparison.png)
-
-The trajectories shown include:
 
 - Reentry trajectory (70% of circular velocity)
 - Elliptical orbit (90% of circular velocity)
 - Circular orbit (100% of circular velocity)
-- Parabolic trajectory (escape velocity)
-- Hyperbolic trajectory (120% of escape velocity)
+- Parabolic trajectory (100% of escape velocity or 141% of circular velocity)
+- Hyperbolic trajectory (120% of escape velocity or about 170% of circular velocity)
 
-## Effect of Release Direction
+![Trajectory comparison](./images/trajectory_comparison.png)
+
+*Figure 6: Comparison of different trajectory types based on initial velocity. The figure demonstrates how the initial speed determines whether the payload will remain in orbit, escape Earth's gravity, or return to the surface.*
 
 The direction in which a payload is released significantly affects its trajectory. The following figure shows trajectories for a payload released with circular velocity in different directions:
 
-![Angle Trajectories](./images/angle_trajectories.png)
+When released tangentially to Earth's surface (90° or 270°), the payload achieves a circular orbit. When released at other angles, the trajectory becomes elliptical, with the Earth's center at one focus of the ellipse. This is a direct consequence of the conservation of angular momentum and energy.
 
-When released tangentially to Earth's surface (90° or 270°), the payload achieves a circular orbit. When released at other angles, the trajectory becomes elliptical, with the Earth's center at one focus of the ellipse.
+![Direction effect](./images/angle_trajectories.png)
 
-## Effect of Initial Speed
+*Figure 7: Effect of release direction on orbital trajectory. The figure illustrates how the angle of release determines the shape and orientation of the resulting orbit while maintaining the same energy.*
 
 The initial speed of the payload is a critical factor in determining its trajectory. The following figure shows trajectories for a payload released with different speeds in the same direction:
-
-![Speed Trajectories](./images/speed_trajectories.png)
 
 As the speed increases:
 
@@ -294,6 +154,14 @@ As the speed increases:
 - Between circular and escape velocity: Elliptical orbit with increasing eccentricity
 - At escape velocity: Parabolic trajectory
 - Above escape velocity: Hyperbolic trajectory with increasing eccentricity
+
+![Speed effect](./images/speed_trajectories.png)
+
+*Figure 8: Effect of initial speed on orbital trajectory. The figure shows how increasing the initial velocity transforms the orbit from elliptical to circular, then to increasingly eccentric ellipses, and finally to parabolic and hyperbolic trajectories.*
+
+## Computational Model and Visualization
+
+The computational model simulates the trajectories of payloads released near Earth under the influence of gravity. It calculates orbital parameters such as eccentricity, specific energy, and angular momentum, and visualizes different types of trajectories through static plots and animations. The model demonstrates how initial conditions determine whether a payload will enter orbit, escape Earth's gravitational field, or reenter the atmosphere.
 
 ## Applications in Space Missions
 
@@ -331,7 +199,11 @@ For interplanetary missions, the spacecraft typically follows:
 2. Heliocentric transfer orbit to the target planet
 3. Capture into orbit around the target planet (requiring a deceleration burn)
 
-For missions beyond the Solar System, the spacecraft must achieve the third cosmic velocity, which is the velocity needed to escape the Sun's gravitational field from Earth's orbit.
+For missions beyond the Solar System, the spacecraft must achieve the third cosmic velocity, which is the velocity needed to escape the Sun's gravitational field from Earth's orbit:
+
+$$v_3 = \sqrt{\frac{2GM_{Sun}}{r_{Earth}}} + v_{Earth}$$
+
+where $r_{Earth}$ is Earth's distance from the Sun and $v_{Earth}$ is Earth's orbital velocity around the Sun.
 
 ## Numerical Simulation
 
@@ -345,7 +217,7 @@ The trajectories shown in this document were generated using numerical integrati
 The simulation accounts for Earth's gravitational field but neglects other factors such as:
 
 - Atmospheric drag
-- Non-spherical shape of Earth
+- Non-spherical shape of Earth (J2 perturbation)
 - Gravitational influence of the Moon and Sun
 - Solar radiation pressure
 
@@ -359,7 +231,15 @@ Key insights include:
 
 - The initial velocity determines whether the trajectory will be elliptical, parabolic, or hyperbolic
 - The release direction affects the orientation and shape of the orbit
-- Specific velocities (circular, escape) serve as important thresholds for different types of trajectories
-- Numerical simulation is a powerful tool for analyzing complex orbital scenarios
+- The specific energy and angular momentum are conserved quantities that determine the orbital parameters
+- The relationship between circular velocity and escape velocity is constant: $v_{esc} = \sqrt{2} \cdot v_{circ}$
+- For interplanetary missions, the third cosmic velocity (escape velocity from the Solar System) is an important threshold
 
-These principles are fundamental to space mission planning, satellite deployment, and planetary exploration.
+This problem demonstrates several fundamental principles of physics:
+
+1. **Conservation of Energy**: The total energy (kinetic + potential) of the payload remains constant in the absence of non-gravitational forces
+2. **Conservation of Angular Momentum**: The angular momentum of the payload is conserved, which explains why orbits are planar
+3. **Newton's Laws of Motion**: The payload's acceleration is determined by the gravitational force according to Newton's Second Law
+4. **Kepler's Laws**: The resulting orbits follow Kepler's Laws, with the payload sweeping out equal areas in equal times
+
+Understanding these principles is essential for space mission planning, satellite deployment, and planetary exploration. The computational model developed in this problem provides a foundation for more complex simulations that could include additional perturbations such as atmospheric drag, non-spherical gravity fields (J2 effect), and third-body gravitational influences.

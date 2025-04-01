@@ -6,11 +6,11 @@ The concept of escape velocity is crucial for understanding the conditions requi
 
 ## Theoretical Foundation
 
-### Gravitational Potential Energy
+**Gravitational Potential Energy**
 
 The foundation of cosmic velocities lies in understanding gravitational potential energy. For an object of mass $m$ in the gravitational field of a body with mass $M$, the gravitational potential energy is given by:
 
-$$U(r) = -\frac{G M m}{r}$$
+$$U = -\frac{G M m}{r}$$
 
 Where:
 
@@ -19,63 +19,57 @@ Where:
 - $m$ is the mass of the object
 - $r$ is the distance between the centers of the two bodies
 
-### Conservation of Energy
+**Conservation of Energy**
 
 The total energy of an object in a gravitational field is the sum of its kinetic energy and potential energy:
 
-$$E = K + U = \frac{1}{2}mv^2 - \frac{GMm}{r}$$
+$$E = \frac{1}{2}mv^2 - \frac{GMm}{r}$$
 
 This total energy determines whether an object is bound to the gravitational field (negative total energy) or can escape to infinity (zero or positive total energy).
 
 ## The Three Cosmic Velocities
 
-### First Cosmic Velocity (Orbital Velocity)
+**First Cosmic Velocity (Orbital Velocity)**
 
 The first cosmic velocity is the minimum velocity needed for an object to maintain a circular orbit around a celestial body at a given distance. It is derived by equating the gravitational force with the centripetal force required for circular motion:
 
-$$F_g = F_c\frac{GMm}{r^2} = \frac{mv^2}{r}$$
+$$\frac{GMm}{r^2} = m\frac{v_1^2}{r}$$
 
-Solving for velocity:
+Solving for $v_1$:
 
 $$v_1 = \sqrt{\frac{GM}{r}}$$
 
-At the surface of a body with radius $R$, the first cosmic velocity is:
-
-$$v_1 = \sqrt{\frac{GM}{R}}$$
-
-### Second Cosmic Velocity (Escape Velocity)
+**Second Cosmic Velocity (Escape Velocity)**
 
 The second cosmic velocity, also known as escape velocity, is the minimum velocity needed for an object to escape the gravitational field of a celestial body. It is derived from the principle that the total energy must be at least zero for escape:
 
-$$E = \frac{1}{2}mv^2 - \frac{GMm}{r} \geq 0$$
+$$\frac{1}{2}mv_2^2 - \frac{GMm}{r} = 0$$
 
-Solving for the minimum velocity at the surface (where $r = R$):
+Solving for $v_2$:
 
-$$v_2 = \sqrt{\frac{2GM}{R}}$$
+$$v_2 = \sqrt{\frac{2GM}{r}} = \sqrt{2} \cdot v_1$$
 
 Notice that the escape velocity is exactly $\sqrt{2}$ times the orbital velocity at the same distance.
 
-### Third Cosmic Velocity (Solar System Escape Velocity)
+**Third Cosmic Velocity (Solar System Escape Velocity)**
 
 The third cosmic velocity is the velocity needed for an object to escape the gravitational field of the Sun from a particular planet's orbit. For an object at Earth's orbit, it is the velocity needed to leave the Solar System entirely.
 
-The formula is similar to the second cosmic velocity, but uses the Sun's mass and the distance from the Sun:
+$$v_3 = \sqrt{\frac{2GM_{Sun}}{r_{orbit}}} + v_{planet}$$
 
-$$v_3 = \sqrt{\frac{2GM_{Sun}}{r_{orbit}}}$$
-
-Where $r_{orbit}$ is the distance of the planet from the Sun.
+Where $r_{orbit}$ is the distance of the planet from the Sun, and $v_{planet}$ is the orbital velocity of the planet around the Sun. This accounts for the fact that a spacecraft must overcome both the Sun's gravitational pull and also leverage the planet's orbital motion.
 
 ## Mathematical Analysis
 
-### Relationship Between Cosmic Velocities
+**Relationship Between Cosmic Velocities**
 
 The relationship between the first and second cosmic velocities is straightforward:
 
-$$v_2 = \sqrt{2} \times v_1$$
+$$v_2 = \sqrt{2} \cdot v_1$$
 
 This means that to escape a celestial body, an object needs approximately 1.414 times the velocity required to orbit it at the same distance.
 
-### Variation with Distance
+**Variation with Distance**
 
 All cosmic velocities decrease with increasing distance from the central body according to an inverse square root relationship:
 
@@ -83,7 +77,7 @@ $$v \propto \frac{1}{\sqrt{r}}$$
 
 This means that it's easier to escape a gravitational field from a higher starting point.
 
-### Variation with Mass
+**Variation with Mass**
 
 Cosmic velocities increase with the square root of the mass of the central body:
 
@@ -93,172 +87,113 @@ This explains why escape velocities for massive bodies like Jupiter are much hig
 
 ## Cosmic Velocities for Different Celestial Bodies
 
+| Celestial Body | Mass (kg) | Radius (km) | First Cosmic Velocity (km/s) | Second Cosmic Velocity (km/s) | Third Cosmic Velocity (km/s) |
+|---------------|-----------|-------------|------------------------------|-------------------------------|-------------------------------|
+| Mercury | 3.30 × 10²³ | 2,440 | 3.0 | 4.3 | 67.7 |
+| Venus | 4.87 × 10²⁴ | 6,052 | 7.3 | 10.4 | 49.5 |
+| Earth | 5.97 × 10²⁴ | 6,371 | 7.9 | 11.2 | 42.1 |
+| Moon | 7.35 × 10²² | 1,737 | 1.7 | 2.4 | 42.1 |
+| Mars | 6.42 × 10²³ | 3,390 | 3.6 | 5.0 | 34.1 |
+| Jupiter | 1.90 × 10²⁷ | 69,911 | 42.1 | 59.5 | 18.5 |
+| Saturn | 5.68 × 10²⁶ | 58,232 | 25.1 | 35.5 | 13.6 |
+| Uranus | 8.68 × 10²⁵ | 25,362 | 15.1 | 21.3 | 9.6 |
+| Neptune | 1.02 × 10²⁶ | 24,622 | 16.6 | 23.5 | 7.7 |
+| Pluto | 1.30 × 10²² | 1,188 | 0.9 | 1.2 | 6.1 |
+
 ## Computational Model and Visualization
 
-<details>
-<summary>Click to view Python code for cosmic velocities calculations and visualizations</summary>
-
-```python
-import numpy as np
-import matplotlib.pyplot as plt
-import os
-import imageio
-import tempfile
-from mpl_toolkits.mplot3d import Axes3D
-
-# Constants
-G = 6.67430e-11  # Gravitational constant (m^3 kg^-1 s^-2)
-
-# Celestial body data
-celestial_bodies = {
-    'Earth': {
-        'mass': 5.972e24,  # kg
-        'radius': 6.371e6,  # m
-        'color': 'blue',
-    },
-    'Moon': {
-        'mass': 7.342e22,  # kg
-        'radius': 1.737e6,  # m
-        'color': 'gray',
-    },
-    'Mars': {
-        'mass': 6.39e23,  # kg
-        'radius': 3.389e6,  # m
-        'color': 'red',
-    },
-    'Jupiter': {
-        'mass': 1.898e27,  # kg
-        'radius': 6.9911e7,  # m
-        'color': 'orange',
-    }
-}
-
-# Solar system data
-solar_system = {
-    'Sun': {
-        'mass': 1.989e30,  # kg
-        'radius': 6.957e8,  # m
-    },
-    'Earth': {
-        'distance_from_sun': 1.496e11,  # m (1 AU)
-    },
-    'Jupiter': {
-        'distance_from_sun': 7.785e11,  # m (5.2 AU)
-    }
-}
-
-# Function to calculate first cosmic velocity (orbital velocity)
-def calculate_first_cosmic_velocity(mass, radius):
-    return np.sqrt(G * mass / radius)
-
-# Function to calculate second cosmic velocity (escape velocity)
-def calculate_second_cosmic_velocity(mass, radius):
-    return np.sqrt(2 * G * mass / radius)
-
-# Function to calculate third cosmic velocity (escape velocity from the solar system)
-def calculate_third_cosmic_velocity(distance_from_sun):
-    sun_mass = solar_system['Sun']['mass']
-    return np.sqrt(2 * G * sun_mass / distance_from_sun)
-
-# Calculate cosmic velocities for all celestial bodies
-for body, data in celestial_bodies.items():
-    data['first_cosmic_velocity'] = calculate_first_cosmic_velocity(data['mass'], data['radius'])
-    data['second_cosmic_velocity'] = calculate_second_cosmic_velocity(data['mass'], data['radius'])
-    data['orbital_velocity_leo'] = calculate_first_cosmic_velocity(data['mass'], data['radius'] + 400e3)
-
-# Calculate third cosmic velocity for Earth and Jupiter
-earth_third_cosmic = calculate_third_cosmic_velocity(solar_system['Earth']['distance_from_sun'])
-jupiter_third_cosmic = calculate_third_cosmic_velocity(solar_system['Jupiter']['distance_from_sun'])
-
-# Create visualizations (bar charts, animations, etc.)
-```
-</details>
-
 The computational model calculates the three cosmic velocities for various celestial bodies and visualizes them through charts and animations. The model demonstrates how these velocities vary with the mass and radius of celestial bodies, providing insights into the requirements for different types of space missions.
-### Comparative Analysis
+
+## Comparative Analysis
 
 The following chart compares the escape velocities (second cosmic velocity) for various celestial bodies in our solar system:
 
 ![Escape Velocities](./images/escape_velocities.png)
 
-As shown, the escape velocity varies significantly across celestial bodies, with Jupiter requiring the highest velocity for escape due to its large mass, while the Moon has a relatively low escape velocity.
+*Figure 1: Escape velocities comparison.*
 
-### Detailed Comparison of Earth and Jupiter
+As shown, the escape velocity varies significantly across celestial bodies, with Jupiter requiring the highest velocity for escape due to its large mass, while the Moon has a relatively low escape velocity. The escape velocity is directly proportional to the square root of the mass of the celestial body and inversely proportional to the square root of its radius.
+
+## Detailed Comparison of Earth and Jupiter
 
 The following chart compares all three cosmic velocities for Earth and Jupiter:
 
 ![Cosmic Velocities Comparison](./images/cosmic_velocities_comparison.png)
 
-This comparison illustrates how the cosmic velocities scale with the mass of the celestial body. Jupiter, being much more massive than Earth, requires significantly higher velocities for both orbiting and escaping.
+*Figure 2: Cosmic velocities comparison for Earth and Jupiter.*
 
-### Variation with Distance
+This comparison illustrates how the cosmic velocities scale with the mass of the celestial body. Jupiter, being much more massive than Earth, requires significantly higher velocities for both orbiting and escaping. However, the third cosmic velocity is lower for Jupiter because of its greater distance from the Sun, demonstrating the inverse square root relationship with distance.
+
+## Variation with Distance
 
 The escape velocity decreases as the distance from the center of a celestial body increases:
 
 ![Escape Velocity vs Distance](./images/escape_velocity_vs_distance.png)
 
-This graph shows how the escape velocity decreases with distance for Earth, Mars, and Jupiter. The x-axis is normalized to the radius of each body, showing that the relationship follows the same pattern regardless of the body's size.
+*Figure 3: Escape velocity vs distance.*
+
+This graph shows how the escape velocity decreases with distance for Earth, Mars, and Jupiter according to the inverse square root relationship: $v_2 = \sqrt{\frac{2GM}{r}}$. The x-axis is normalized to the radius of each body, showing that the relationship follows the same pattern regardless of the body's size. At infinite distance, the escape velocity approaches zero.
 
 ## Visualizations of Cosmic Velocities
 
-### Orbital vs. Escape Trajectories
+**Orbital vs. Escape Trajectories**
 
 The following animation illustrates the difference between an orbital trajectory (first cosmic velocity) and an escape trajectory (second cosmic velocity):
 
-![Trajectory Comparison](./images/trajectory_comparison.gif)
+![Orbital vs Escape Trajectories](./images/trajectory_comparison.gif)
 
-With the first cosmic velocity, an object follows a closed circular or elliptical path around the central body. With the second cosmic velocity, the object follows an open hyperbolic path that allows it to escape the gravitational influence of the central body.
+*Figure 4: Animation comparing orbital and escape trajectories.*
 
-### Solar System Escape
+With the first cosmic velocity, an object follows a closed circular or elliptical path around the central body, maintaining a constant total energy $E < 0$. With the second cosmic velocity, the object follows an open hyperbolic path that allows it to escape the gravitational influence of the central body, with total energy $E ≥ 0$.
+
+**Solar System Escape**
 
 The third cosmic velocity enables a spacecraft to escape the Solar System entirely:
 
 ![Solar System Escape](./images/solar_system_escape.gif)
 
-This animation shows a spacecraft leaving Earth's orbit with sufficient velocity to escape the Sun's gravitational field, demonstrating the concept of the third cosmic velocity.
+*Figure 5: Animation showing Solar System escape trajectory.*
+
+This animation shows a spacecraft leaving Earth's orbit with sufficient velocity to escape the Sun's gravitational field, demonstrating the concept of the third cosmic velocity. The trajectory becomes hyperbolic relative to the Sun, allowing the spacecraft to reach interstellar space.
 
 ## Applications in Space Exploration
 
-### Launching Satellites
+**Launching Satellites**
 
 To place a satellite in orbit, it must be accelerated to at least the first cosmic velocity for its intended orbital altitude. For a Low Earth Orbit (LEO) at approximately 400 km above Earth's surface, this velocity is about 7.67 km/s.
 
-The rocket equation, derived by Konstantin Tsiolkovsky, describes the relationship between the change in velocity (Δv), the exhaust velocity of the propellant, and the mass ratio of the rocket:
+The rocket equation, developed by Konstantin Tsiolkovsky, describes the relationship between the rocket's final velocity change (Δv), the exhaust velocity (ve), and the initial and final masses (m0 and mf):
 
 $$\Delta v = v_e \ln\left(\frac{m_0}{m_f}\right)$$
 
-Where:
-- $\Delta v$ is the change in velocity
-- $v_e$ is the exhaust velocity
-- $m_0$ is the initial mass (including propellant)
-- $m_f$ is the final mass (after propellant is expended)
+Rearranging to find the mass ratio required for a given velocity change:
+
+$$\frac{m_0}{m_f} = e^{\frac{\Delta v}{v_e}}$$
 
 This equation highlights the exponential relationship between the required propellant and the desired velocity change, making it increasingly difficult to achieve higher velocities.
 
-### Interplanetary Missions
+**Interplanetary Missions**
 
 For missions to other planets, spacecraft typically use a combination of the first and second cosmic velocities along with gravitational assists. The Hohmann transfer orbit is an efficient method for interplanetary travel, using the minimum energy required to transfer between two circular orbits:
 
-1. The spacecraft first accelerates to escape Earth's gravitational influence (slightly above the first cosmic velocity).
-2. It then enters an elliptical transfer orbit around the Sun.
-3. Finally, it decelerates to enter orbit around the target planet.
+$$\Delta v_{total} = \left|\sqrt{\frac{GM_{Sun}}{r_1}} - \sqrt{\frac{2GM_{Sun}r_2}{r_1(r_1+r_2)}}\right| + \left|\sqrt{\frac{GM_{Sun}}{r_2}} - \sqrt{\frac{2GM_{Sun}r_1}{r_2(r_1+r_2)}}\right|$$
 
 The total Δv required for a Hohmann transfer from Earth to Mars is approximately 5.6 km/s, while a transfer to Jupiter requires about 9.1 km/s.
 
-### Gravity Assists
+**Gravity Assists**
 
 To reduce the propellant requirements for interplanetary missions, spacecraft often use gravity assists (also known as gravitational slingshots). By passing close to a planet, a spacecraft can gain or lose velocity relative to the Sun without expending propellant.
 
-The Voyager missions used gravity assists from Jupiter and Saturn to gain enough velocity to escape the Solar System, effectively achieving the third cosmic velocity without the enormous propellant requirements that would otherwise be necessary.
+The maximum velocity change possible through a gravity assist is approximately twice the planet's orbital velocity. For Jupiter, this can provide a velocity boost of up to about 26 km/s, which is a significant fraction of the third cosmic velocity.
 
-### Interstellar Travel Considerations
+**Interstellar Travel Considerations**
 
 For potential future interstellar missions, the velocities required are far beyond the third cosmic velocity. The nearest star system, Alpha Centauri, is approximately 4.37 light-years away. Even traveling at 0.1c (10% of the speed of light, or about 30,000 km/s), such a journey would take over 40 years.
 
-Proposed methods for achieving such velocities include:
+Several propulsion concepts have been proposed for interstellar travel:
 
-1. **Nuclear Propulsion**: Using nuclear fission or fusion to achieve higher exhaust velocities.
-2. **Solar Sails**: Using the pressure of sunlight or laser beams to accelerate a lightweight sail.
+1. **Nuclear Pulse Propulsion**: Using nuclear explosions for propulsion, as proposed in Project Orion.
+2. **Nuclear Fusion Rockets**: Utilizing controlled fusion reactions for high exhaust velocities.
 3. **Antimatter Propulsion**: Utilizing matter-antimatter annihilation for maximum energy release.
 4. **Breakthrough Starshot**: A proposed mission using powerful ground-based lasers to accelerate small probes to approximately 0.2c.
 
@@ -266,4 +201,4 @@ Proposed methods for achieving such velocities include:
 
 The concepts of cosmic velocities are fundamental to understanding the requirements and limitations of space exploration. The first cosmic velocity enables satellites to orbit Earth, the second cosmic velocity allows spacecraft to escape a planet's gravitational field, and the third cosmic velocity permits escape from the Solar System.
 
-As our technological capabilities advance, we continue to develop more efficient propulsion systems that bring us closer to achieving the velocities required for interplanetary and, eventually, interstellar travel. Understanding these velocity thresholds and their implications is essential for planning future space missions and expanding humanity's presence beyond Earth.
+As our technology advances, we continue to develop more efficient propulsion systems that bring us closer to achieving the velocities required for interplanetary and, eventually, interstellar travel. Understanding the physics behind these cosmic velocities is essential for planning future space missions and expanding humanity's presence beyond Earth.
