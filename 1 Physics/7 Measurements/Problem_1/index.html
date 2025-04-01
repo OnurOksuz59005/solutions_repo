@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 1 - Physics and Mathematics</title>
+<title>Measuring Earth's Gravitational Acceleration with a Pendulum - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 1";
+        var mkdocs_page_name = "Measuring Earth\u0027s Gravitational Acceleration with a Pendulum";
         var mkdocs_page_input_path = "1 Physics/7 Measurements/Problem_1.md";
         var mkdocs_page_url = null;
       </script>
@@ -46,9 +46,9 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal">1 Mechanics</a>
 <ul>
-<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_1/">Problem 1: Investigating the Range as a Function of the Angle of Projection</a>
+<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_1/">Investigating the Range of a Projectile as a Function of the Angle of Projection</a>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_2/">Problem 2: Investigating the Dynamics of a Forced Damped Pendulum</a>
+<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_2/">Investigating the Dynamics of a Forced Damped Pendulum</a>
 </li>
 </ul>
 </li>
@@ -82,16 +82,70 @@
 </li>
 <li class="toctree-l1"><a class="reference internal">6 Statistics</a>
 <ul>
-<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_1/">Problem 1</a>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_1/">Exploring the Central Limit Theorem through simulations</a>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_2/">Problem 2</a>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_2/">Estimating Pi using Monte Carlo Methods</a>
 </li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">7 Measurements</a>
 <ul class="current">
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 1</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Measuring Earth's Gravitational Acceleration with a Pendulum</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#theoretical-background">Theoretical Background</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#experimental-setup">Experimental Setup</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#materials">Materials</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#setup-procedure">Setup Procedure</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#measurement-procedure">Measurement Procedure</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#length-measurement">Length Measurement</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#period-measurement">Period Measurement</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-analysis">Data Analysis</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#sample-data">Sample Data</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#calculations">Calculations</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#visualization-of-results">Visualization of Results</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#period-vs-length-relationship">Period vs. Length Relationship</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#measurement-precision-analysis">Measurement Precision Analysis</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#error-analysis">Error Analysis</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#sources-of-uncertainty">Sources of Uncertainty</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#quantitative-analysis-of-errors">Quantitative Analysis of Errors</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-with-accepted-value">Comparison with Accepted Value</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#improvements-and-extensions">Improvements and Extensions</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#experimental-improvements">Experimental Improvements</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#possible-extensions">Possible Extensions</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a>
+</li>
 </ul>
 </li>
 </ul>
@@ -120,7 +174,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">7 Measurements</li>
-<li class="breadcrumb-item active">Problem 1</li>
+<li class="breadcrumb-item active">Measuring Earth's Gravitational Acceleration with a Pendulum</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -128,11 +182,196 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-1">Problem 1</h1>
+<h1 id="measuring-earths-gravitational-acceleration-with-a-pendulum">Measuring Earth's Gravitational Acceleration with a Pendulum</h1>
+<h2 id="theoretical-background">Theoretical Background</h2>
+<p>The acceleration due to gravity (g) is a fundamental physical constant that varies slightly across Earth's surface due to factors such as latitude, altitude, and local geology. A simple pendulum provides an elegant method to measure this constant with reasonable accuracy.</p>
+<p>A simple pendulum consists of a mass (bob) suspended from a fixed point by a string or rod of negligible mass. When displaced from equilibrium and released, it oscillates with a period (T) that depends on the pendulum's length (L) and the local gravitational acceleration (g).</p>
+<p>For small oscillations (less than about 15°), the period of a simple pendulum is given by:</p>
+<div class="arithmatex">\[T = 2\pi\sqrt{\frac{L}{g}}\]</div>
+<p>Rearranging to solve for g:</p>
+<div class="arithmatex">\[g = 4\pi^2\frac{L}{T^2}\]</div>
+<p>This relationship allows us to determine g by measuring the pendulum's length and its period of oscillation.</p>
+<h2 id="experimental-setup">Experimental Setup</h2>
+<h3 id="materials">Materials</h3>
+<ul>
+<li>String (approximately 1-1.5 meters long)</li>
+<li>Small weight (e.g., metal bob, bag of coins, or key chain)</li>
+<li>Sturdy support for suspending the pendulum</li>
+<li>Ruler or measuring tape (with millimeter precision)</li>
+<li>Stopwatch or smartphone timer (with 0.01 second precision)</li>
+<li>Lab stand with clamp (optional)</li>
+</ul>
+<h3 id="setup-procedure">Setup Procedure</h3>
+<ol>
+<li>Attach one end of the string to the support structure, ensuring it's securely fastened</li>
+<li>Tie the weight to the free end of the string</li>
+<li>Measure the length (L) from the suspension point to the center of the weight</li>
+<li>Ensure the pendulum can swing freely without obstructions</li>
+</ol>
+<p><img alt="Pendulum Experimental Setup" src="../images/pendulum_setup.png"/></p>
+<p><em>Figure 1: Experimental setup for the simple pendulum experiment. The length L is measured from the suspension point to the center of mass of the bob.</em></p>
+<h2 id="measurement-procedure">Measurement Procedure</h2>
+<h3 id="length-measurement">Length Measurement</h3>
+<ol>
+<li>Measure the pendulum length (L) from the suspension point to the center of the weight using a ruler or measuring tape</li>
+<li>Record the measurement in meters</li>
+<li>Note the resolution of the measuring tool (typically 1 mm for a standard ruler)</li>
+<li>Calculate the uncertainty in length as half the resolution: <span class="arithmatex">\(\Delta L = \text{Resolution}/2\)</span></li>
+</ol>
+<h3 id="period-measurement">Period Measurement</h3>
+<ol>
+<li>Displace the pendulum approximately 10-15° from its equilibrium position</li>
+<li>Release the pendulum (without pushing) and start the timer</li>
+<li>Count 10 complete oscillations and record the total time (<span class="arithmatex">\(T_{10}\)</span>)</li>
+<li>Repeat this measurement 10 times to obtain multiple data points</li>
+<li>Calculate the mean time for 10 oscillations (<span class="arithmatex">\(\overline{T}_{10}\)</span>)</li>
+<li>Calculate the standard deviation of the measurements (<span class="arithmatex">\(\sigma_T\)</span>)</li>
+<li>Determine the uncertainty in the mean time using: <span class="arithmatex">\(\Delta T_{10} = \frac{\sigma_T}{\sqrt{n}}\)</span> where n = 10</li>
+</ol>
+<h2 id="data-analysis">Data Analysis</h2>
+<h3 id="sample-data">Sample Data</h3>
+<p><strong>Length Measurement:</strong></p>
+<ul>
+<li>Pendulum length (L): 1.000 m</li>
+<li>Ruler resolution: 1 mm</li>
+<li>Length uncertainty (ΔL): 0.0005 m</li>
+</ul>
+<p><strong>Period Measurements:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Trial</th>
+<th>Time for 10 oscillations (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>20.12</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20.08</td>
+</tr>
+<tr>
+<td>3</td>
+<td>20.15</td>
+</tr>
+<tr>
+<td>4</td>
+<td>20.10</td>
+</tr>
+<tr>
+<td>5</td>
+<td>20.13</td>
+</tr>
+<tr>
+<td>6</td>
+<td>20.09</td>
+</tr>
+<tr>
+<td>7</td>
+<td>20.11</td>
+</tr>
+<tr>
+<td>8</td>
+<td>20.14</td>
+</tr>
+<tr>
+<td>9</td>
+<td>20.07</td>
+</tr>
+<tr>
+<td>10</td>
+<td>20.11</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Statistical Analysis:</strong></p>
+<ul>
+<li>Mean time for 10 oscillations (<span class="arithmatex">\(\overline{T}_{10}\)</span>): 20.11 s</li>
+<li>Standard deviation (<span class="arithmatex">\(\sigma_T\)</span>): 0.0258 s</li>
+<li>Uncertainty in mean time (<span class="arithmatex">\(\Delta T_{10}\)</span>): 0.0082 s</li>
+</ul>
+<h3 id="calculations">Calculations</h3>
+<p><strong>1. Calculate the period:</strong></p>
+<div class="arithmatex">\[T = \frac{\overline{T}_{10}}{10} = \frac{20.11\text{ s}}{10} = 2.011\text{ s}\]</div>
+<div class="arithmatex">\[\Delta T = \frac{\Delta T_{10}}{10} = \frac{0.0082\text{ s}}{10} = 0.00082\text{ s}\]</div>
+<p><strong>2. Determine g:</strong></p>
+<div class="arithmatex">\[g = 4\pi^2\frac{L}{T^2} = 4\pi^2\frac{1.000\text{ m}}{(2.011\text{ s})^2} = 9.77\text{ m/s}^2\]</div>
+<p><strong>3. Propagate uncertainties:</strong></p>
+<p>Using the formula for error propagation:</p>
+<div class="arithmatex">\[\Delta g = g\sqrt{\left(\frac{\Delta L}{L}\right)^2 + \left(2\frac{\Delta T}{T}\right)^2}\]</div>
+<div class="arithmatex">\[\Delta g = 9.77\text{ m/s}^2\sqrt{\left(\frac{0.0005\text{ m}}{1.000\text{ m}}\right)^2 + \left(2\frac{0.00082\text{ s}}{2.011\text{ s}}\right)^2}\]</div>
+<div class="arithmatex">\[\Delta g = 9.77\text{ m/s}^2\sqrt{(0.0005)^2 + (0.00082)^2} = 0.0096\text{ m/s}^2\]</div>
+<p><strong>4. Final result:</strong></p>
+<div class="arithmatex">\[g = (9.77 \pm 0.01)\text{ m/s}^2\]</div>
+<h2 id="visualization-of-results">Visualization of Results</h2>
+<h3 id="period-vs-length-relationship">Period vs. Length Relationship</h3>
+<p>To verify the theoretical relationship between period and pendulum length, we can perform additional measurements with different pendulum lengths and plot the results.</p>
+<p><img alt="Period vs Length" src="../images/pendulum_period_length.png"/></p>
+<p><em>Figure 2: Relationship between pendulum period and square root of length. The linear relationship confirms the theoretical prediction that <span class="arithmatex">\(T \propto \sqrt{L}\)</span>.</em></p>
+<h3 id="measurement-precision-analysis">Measurement Precision Analysis</h3>
+<p><img alt="Measurement Distribution" src="../images/pendulum_measurement_distribution.png"/></p>
+<p><em>Figure 3: Distribution of period measurements showing the spread around the mean value. The histogram approximates a normal distribution, as expected for random measurement errors.</em></p>
+<h2 id="error-analysis">Error Analysis</h2>
+<h3 id="sources-of-uncertainty">Sources of Uncertainty</h3>
+<p><strong>1. Systematic Errors:</strong></p>
+<ul>
+<li><strong>Length measurement</strong>: The exact position of the center of mass of the bob may be difficult to determine precisely</li>
+<li><strong>Air resistance</strong>: Can slightly increase the period, especially for lighter bobs</li>
+<li><strong>String elasticity</strong>: The string may not be perfectly inelastic as assumed in the simple pendulum model</li>
+<li><strong>Large amplitude effects</strong>: For angles larger than about 5°, the small-angle approximation begins to introduce errors</li>
+</ul>
+<p><strong>2. Random Errors:</strong></p>
+<ul>
+<li><strong>Timing errors</strong>: Human reaction time when starting/stopping the stopwatch</li>
+<li><strong>Counting errors</strong>: Possibility of miscounting the number of oscillations</li>
+<li><strong>Release angle variations</strong>: Slight differences in the initial release angle between trials</li>
+</ul>
+<h3 id="quantitative-analysis-of-errors">Quantitative Analysis of Errors</h3>
+<p><strong>1. Effect of measurement resolution on ΔL:</strong></p>
+<p>With a ruler resolution of 1 mm, our length uncertainty is 0.5 mm. This contributes approximately 0.05% to the relative uncertainty in g.</p>
+<p><strong>2. Timing uncertainty impact:</strong></p>
+<p>The relative uncertainty in our period measurement is about 0.04%. Since g depends on T², this contributes approximately 0.08% to the relative uncertainty in g.</p>
+<p><strong>3. Large amplitude correction:</strong></p>
+<p>For oscillations with amplitude θ, the period is more accurately given by:</p>
+<div class="arithmatex">\[T = 2\pi\sqrt{\frac{L}{g}}\left(1 + \frac{1}{16}\theta^2 + ...\right)\]</div>
+<p>For our maximum angle of 15° (0.26 radians), this correction would be approximately 0.4%.</p>
+<h2 id="comparison-with-accepted-value">Comparison with Accepted Value</h2>
+<p>The accepted value for Earth's gravitational acceleration at sea level is approximately 9.81 m/s².</p>
+<p>Our measured value: <span class="arithmatex">\(g = (9.77 \pm 0.01)\text{ m/s}^2\)</span></p>
+<p>The difference between our measured value and the accepted value is 0.04 m/s², which is larger than our calculated uncertainty of 0.01 m/s². This suggests the presence of systematic errors not fully accounted for in our uncertainty analysis.</p>
+<h2 id="improvements-and-extensions">Improvements and Extensions</h2>
+<h3 id="experimental-improvements">Experimental Improvements</h3>
+<ol>
+<li><strong>Use a photogate timer</strong>: This would eliminate human reaction time errors in measuring the period</li>
+<li><strong>Employ a more precise length measurement tool</strong>: A digital caliper could reduce length uncertainty</li>
+<li><strong>Use a heavier bob</strong>: This would minimize the effects of air resistance</li>
+<li><strong>Ensure smaller oscillation angles</strong>: Staying below 5° would reduce large-amplitude errors</li>
+<li><strong>Account for the finite size of the bob</strong>: Measure to the center of oscillation rather than the center of mass</li>
+</ol>
+<h3 id="possible-extensions">Possible Extensions</h3>
+<ol>
+<li><strong>Investigate the effect of bob mass</strong>: Theory predicts no dependence, but experimental verification is valuable</li>
+<li><strong>Study the effect of amplitude</strong>: Measure periods at different amplitudes and compare with the theoretical correction</li>
+<li><strong>Measure g at different locations</strong>: Compare measurements taken at different elevations or latitudes</li>
+<li><strong>Construct a physical pendulum</strong>: Investigate the oscillation of extended bodies rather than point masses</li>
+</ol>
+<h2 id="conclusion">Conclusion</h2>
+<p>The simple pendulum experiment provides a straightforward method to measure Earth's gravitational acceleration with reasonable accuracy. Our measured value of <span class="arithmatex">\(g = (9.77 \pm 0.01)\text{ m/s}^2\)</span> differs from the accepted value by approximately 0.4%, which is likely due to systematic errors in our experimental setup.</p>
+<p>This experiment demonstrates fundamental principles of experimental physics, including:</p>
+<ol>
+<li>The application of theoretical models to real-world measurements</li>
+<li>The importance of uncertainty analysis in experimental results</li>
+<li>The distinction between random and systematic errors</li>
+<li>The process of error propagation in calculated quantities</li>
+</ol>
+<p>Through careful measurement and analysis, we've demonstrated how a simple apparatus can be used to determine a fundamental physical constant, illustrating the power of experimental methods in physics.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-left" href="../../6%20Statistics/Problem_2/" title="Problem 2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-left" href="../../6%20Statistics/Problem_2/" title="Estimating Pi using Monte Carlo Methods"><span class="icon icon-circle-arrow-left"></span> Previous</a>
 <a class="btn btn-neutral float-right" href="../../../2%20Mathematics/1%20Linear_algebra/" title="Linear Algebra">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>

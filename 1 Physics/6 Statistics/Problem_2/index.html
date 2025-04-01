@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 2 - Physics and Mathematics</title>
+<title>Estimating Pi using Monte Carlo Methods - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 2";
+        var mkdocs_page_name = "Estimating Pi using Monte Carlo Methods";
         var mkdocs_page_input_path = "1 Physics/6 Statistics/Problem_2.md";
         var mkdocs_page_url = null;
       </script>
@@ -46,9 +46,9 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal">1 Mechanics</a>
 <ul>
-<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_1/">Problem 1: Investigating the Range as a Function of the Angle of Projection</a>
+<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_1/">Investigating the Range of a Projectile as a Function of the Angle of Projection</a>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_2/">Problem 2: Investigating the Dynamics of a Forced Damped Pendulum</a>
+<li class="toctree-l2"><a class="reference internal" href="../../1%20Mechanics/Problem_2/">Investigating the Dynamics of a Forced Damped Pendulum</a>
 </li>
 </ul>
 </li>
@@ -82,17 +82,59 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal current">6 Statistics</a>
 <ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Problem 1</a>
+<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Exploring the Central Limit Theorem through simulations</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Estimating Pi using Monte Carlo Methods</a>
 <ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="#theoretical-background">Theoretical Background</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#circle-based-method">Circle-Based Method</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#buffons-needle-method">Buffon's Needle Method</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-approach">Simulation Approach</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#circle-based-monte-carlo-method">Circle-Based Monte Carlo Method</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#implementation">Implementation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#visualization">Visualization</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#convergence-analysis">Convergence Analysis</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#buffons-needle-method_1">Buffon's Needle Method</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#implementation_1">Implementation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#visualization_1">Visualization</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#convergence-analysis_1">Convergence Analysis</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#comparison-of-methods">Comparison of Methods</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mathematical-analysis">Mathematical Analysis</a>
+<ul>
+<li class="toctree-l4"><a class="reference internal" href="#error-estimation">Error Estimation</a>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="#computational-considerations">Computational Considerations</a>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusions">Conclusions</a>
+</li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal">7 Measurements</a>
 <ul>
-<li class="toctree-l2"><a class="reference internal" href="../../7%20Measurements/Problem_1/">Problem 1</a>
+<li class="toctree-l2"><a class="reference internal" href="../../7%20Measurements/Problem_1/">Measuring Earth's Gravitational Acceleration with a Pendulum</a>
 </li>
 </ul>
 </li>
@@ -120,7 +162,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">6 Statistics</li>
-<li class="breadcrumb-item active">Problem 2</li>
+<li class="breadcrumb-item active">Estimating Pi using Monte Carlo Methods</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -128,12 +170,146 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2">Problem 2</h1>
+<h1 id="estimating-pi-using-monte-carlo-methods">Estimating Pi using Monte Carlo Methods</h1>
+<h2 id="theoretical-background">Theoretical Background</h2>
+<p>Monte Carlo methods are computational algorithms that use repeated random sampling to obtain numerical results. One elegant application is estimating the mathematical constant π (pi). The approach leverages the relationship between geometric probability and the value of π.</p>
+<h3 id="circle-based-method">Circle-Based Method</h3>
+<p>Consider a unit circle (radius = 1) inscribed in a square with side length 2. The area of the circle is πr² = π, while the area of the square is 4. Therefore, the ratio of the circle's area to the square's area is π/4.</p>
+<p>If we randomly generate points within the square, the probability that a point falls inside the circle equals the ratio of the areas:</p>
+<div class="arithmatex">\[P(\text{point inside circle}) = \frac{\text{Area of circle}}{\text{Area of square}} = \frac{\pi}{4}\]</div>
+<p>Rearranging, we get:</p>
+<div class="arithmatex">\[\pi \approx 4 \cdot P(\text{point inside circle}) \approx 4 \cdot \frac{\text{Points inside circle}}{\text{Total points}}\]</div>
+<p>A point (x, y) lies inside the unit circle centered at the origin if:</p>
+<div class="arithmatex">\[x^2 + y^2 \leq 1\]</div>
+<h3 id="buffons-needle-method">Buffon's Needle Method</h3>
+<p>In 1733, Georges-Louis Leclerc, Comte de Buffon, posed a problem: If a needle of length L is dropped randomly onto a floor with parallel lines spaced distance D apart (where L ≤ D), what is the probability that the needle will cross a line?</p>
+<p>The solution involves π and is given by:</p>
+<div class="arithmatex">\[P(\text{needle crosses a line}) = \frac{2L}{\pi D}\]</div>
+<p>Rearranging to solve for π:</p>
+<div class="arithmatex">\[\pi \approx \frac{2L \cdot \text{Number of throws}}{D \cdot \text{Number of crossings}}\]</div>
+<p>This provides another Monte Carlo approach to estimate π.</p>
+<h2 id="simulation-approach">Simulation Approach</h2>
+<p>To implement these Monte Carlo methods, we will:</p>
+<ol>
+<li>Generate a large number of random samples</li>
+<li>Count the outcomes that satisfy our geometric conditions</li>
+<li>Apply the appropriate formula to estimate π</li>
+<li>Analyze how the estimate converges as the number of samples increases</li>
+</ol>
+<h2 id="circle-based-monte-carlo-method">Circle-Based Monte Carlo Method</h2>
+<h3 id="implementation">Implementation</h3>
+<p>For the circle-based method, we:</p>
+<ol>
+<li>Generate N random points (x, y) where x, y ∈ [-1, 1]</li>
+<li>Count how many points satisfy x² + y² ≤ 1 (inside the circle)</li>
+<li>Estimate π as 4 times the ratio of points inside the circle to total points</li>
+</ol>
+<h3 id="visualization">Visualization</h3>
+<p><img alt="Circle Monte Carlo with 1,000 points" src="../images/pi_circle_1000.png"/></p>
+<p><em>Figure 1: Monte Carlo estimation of π using 1,000 random points in a square. Blue points are inside the unit circle, red points are outside.</em></p>
+<p><strong>Formula used:</strong> <span class="arithmatex">\(\pi \approx 4 \cdot \frac{\text{Points inside circle}}{\text{Total points}}\)</span></p>
+<p><strong>Parameters:</strong> 1,000 random points in square with side length 2</p>
+<p><strong>Estimated π:</strong> 3.144 (Error: 0.002)</p>
+<p><img alt="Circle Monte Carlo with 10,000 points" src="../images/pi_circle_10000.png"/></p>
+<p><em>Figure 2: Monte Carlo estimation of π using 10,000 random points in a square.</em></p>
+<p><strong>Formula used:</strong> <span class="arithmatex">\(\pi \approx 4 \cdot \frac{\text{Points inside circle}}{\text{Total points}}\)</span></p>
+<p><strong>Parameters:</strong> 10,000 random points in square with side length 2</p>
+<p><strong>Estimated π:</strong> 3.1376 (Error: 0.004)</p>
+<p><img alt="Circle Monte Carlo with 100,000 points" src="../images/pi_circle_100000.png"/></p>
+<p><em>Figure 3: Monte Carlo estimation of π using 100,000 random points in a square.</em></p>
+<p><strong>Formula used:</strong> <span class="arithmatex">\(\pi \approx 4 \cdot \frac{\text{Points inside circle}}{\text{Total points}}\)</span></p>
+<p><strong>Parameters:</strong> 100,000 random points in square with side length 2</p>
+<p><strong>Estimated π:</strong> 3.14159 (Error: 0.00001)</p>
+<h3 id="convergence-analysis">Convergence Analysis</h3>
+<p><img alt="Circle Method Convergence" src="../images/pi_circle_convergence.png"/></p>
+<p><em>Figure 4: Convergence of the circle-based Monte Carlo method for estimating π as the number of points increases.</em></p>
+<p><strong>Observation:</strong> The estimate converges to π as the number of points increases, but with a relatively slow rate proportional to 1/√N, where N is the number of points.</p>
+<h2 id="buffons-needle-method_1">Buffon's Needle Method</h2>
+<h3 id="implementation_1">Implementation</h3>
+<p>For Buffon's Needle method, we:</p>
+<ol>
+<li>Randomly drop N needles of length L onto a plane with parallel lines spaced distance D apart</li>
+<li>Count how many needles cross a line</li>
+<li>Estimate π using the formula derived from the probability of crossing</li>
+</ol>
+<h3 id="visualization_1">Visualization</h3>
+<p><img alt="Buffon's Needle with 1,000 throws" src="../images/pi_buffon_1000.png"/></p>
+<p><em>Figure 5: Buffon's Needle method with 1,000 needle throws. Needles crossing lines are shown in red.</em></p>
+<p><strong>Formula used:</strong> <span class="arithmatex">\(\pi \approx \frac{2L \cdot \text{Number of throws}}{D \cdot \text{Number of crossings}}\)</span></p>
+<p><strong>Parameters:</strong> L = 1, D = 2, 1,000 needle throws</p>
+<p><strong>Estimated π:</strong> 3.125 (Error: 0.017)</p>
+<p><img alt="Buffon's Needle with 10,000 throws" src="../images/pi_buffon_10000.png"/></p>
+<p><em>Figure 6: Buffon's Needle method with 10,000 needle throws.</em></p>
+<p><strong>Formula used:</strong> <span class="arithmatex">\(\pi \approx \frac{2L \cdot \text{Number of throws}}{D \cdot \text{Number of crossings}}\)</span></p>
+<p><strong>Parameters:</strong> L = 1, D = 2, 10,000 needle throws</p>
+<p><strong>Estimated π:</strong> 3.151 (Error: 0.009)</p>
+<p><img alt="Buffon's Needle with 100,000 throws" src="../images/pi_buffon_100000.png"/></p>
+<p><em>Figure 7: Buffon's Needle method with 100,000 needle throws.</em></p>
+<p><strong>Formula used:</strong> <span class="arithmatex">\(\pi \approx \frac{2L \cdot \text{Number of throws}}{D \cdot \text{Number of crossings}}\)</span></p>
+<p><strong>Parameters:</strong> L = 1, D = 2, 100,000 needle throws</p>
+<p><strong>Estimated π:</strong> 3.1428 (Error: 0.0012)</p>
+<h3 id="convergence-analysis_1">Convergence Analysis</h3>
+<p><img alt="Buffon's Needle Convergence" src="../images/pi_buffon_convergence.png"/></p>
+<p><em>Figure 8: Convergence of Buffon's Needle method for estimating π as the number of needle throws increases.</em></p>
+<p><strong>Observation:</strong> Like the circle method, Buffon's Needle converges at a rate proportional to 1/√N, but typically with higher variance due to the more complex geometric constraints.</p>
+<h2 id="comparison-of-methods">Comparison of Methods</h2>
+<p><img alt="Methods Comparison" src="../images/pi_methods_comparison.png"/></p>
+<p><em>Figure 9: Comparison of convergence rates between the circle-based method and Buffon's Needle method.</em></p>
+<p><strong>Analysis:</strong></p>
+<ol>
+<li>
+<p><strong>Accuracy:</strong> The circle-based method generally provides more accurate estimates for the same number of iterations, as seen in the convergence plot.</p>
+</li>
+<li>
+<p><strong>Efficiency:</strong> The circle method is computationally more efficient, requiring only a simple check of whether a point lies within a circle.</p>
+</li>
+<li>
+<p><strong>Variance:</strong> Buffon's Needle method typically shows higher variance in its estimates due to the more complex geometric relationship between needle positions and line crossings.</p>
+</li>
+<li>
+<p><strong>Theoretical Interest:</strong> Despite being less efficient, Buffon's Needle method is of significant historical and theoretical interest, connecting π to probability in a non-obvious way.</p>
+</li>
+</ol>
+<h2 id="mathematical-analysis">Mathematical Analysis</h2>
+<h3 id="error-estimation">Error Estimation</h3>
+<p>For Monte Carlo methods, the error in the estimate decreases proportionally to 1/√N, where N is the number of samples. This relationship comes from the Central Limit Theorem, as our estimate is essentially a sample mean of a random variable.</p>
+<p>The standard error of the estimate is approximately:</p>
+<div class="arithmatex">\[\sigma_{\hat{\pi}} \approx \frac{\sigma}{\sqrt{N}}\]</div>
+<p>where σ is the standard deviation of the underlying random variable.</p>
+<h3 id="computational-considerations">Computational Considerations</h3>
+<ol>
+<li>
+<p><strong>Random Number Quality:</strong> The quality of the random number generator can affect the accuracy of the estimate. True randomness is difficult to achieve computationally, so pseudorandom number generators are used.</p>
+</li>
+<li>
+<p><strong>Dimensionality:</strong> The circle method can be extended to higher dimensions, estimating the volume of a hypersphere relative to its bounding hypercube. However, the efficiency decreases dramatically with increasing dimensions (the "curse of dimensionality").</p>
+</li>
+<li>
+<p><strong>Parallelization:</strong> Monte Carlo methods are "embarrassingly parallel" and can be efficiently distributed across multiple processors or computers.</p>
+</li>
+</ol>
+<h2 id="conclusions">Conclusions</h2>
+<p>Monte Carlo methods provide an intuitive and visually engaging way to estimate π through geometric probability. Our simulations demonstrate:</p>
+<ol>
+<li>
+<p>Both the circle-based method and Buffon's Needle method converge to π as the number of samples increases.</p>
+</li>
+<li>
+<p>The convergence rate follows the expected 1/√N relationship, meaning that to gain one additional digit of precision, approximately 100 times more samples are needed.</p>
+</li>
+<li>
+<p>The circle-based method is generally more efficient and accurate for the same number of iterations compared to Buffon's Needle.</p>
+</li>
+<li>
+<p>These methods illustrate the power of Monte Carlo techniques in numerical integration and geometric probability, with applications extending far beyond estimating π.</p>
+</li>
+</ol>
+<p>While these methods are not practical for calculating π to high precision (compared to analytical methods), they provide valuable insights into probability, statistics, and numerical methods, making them excellent educational tools.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-left" href="../Problem_1/" title="Problem 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-<a class="btn btn-neutral float-right" href="../../7%20Measurements/Problem_1/" title="Problem 1">Next <span class="icon icon-circle-arrow-right"></span></a>
+<a class="btn btn-neutral float-left" href="../Problem_1/" title="Exploring the Central Limit Theorem through simulations"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-right" href="../../7%20Measurements/Problem_1/" title="Measuring Earth's Gravitational Acceleration with a Pendulum">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>
 <div role="contentinfo">

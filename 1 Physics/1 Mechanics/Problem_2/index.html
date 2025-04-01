@@ -6,13 +6,13 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="../../../img/favicon.ico" rel="shortcut icon"/>
-<title>Problem 2: Investigating the Dynamics of a Forced Damped Pendulum - Physics and Mathematics</title>
+<title>Investigating the Dynamics of a Forced Damped Pendulum - Physics and Mathematics</title>
 <link href="../../../css/theme.css" rel="stylesheet"/>
 <link href="../../../css/theme_extra.css" rel="stylesheet"/>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" rel="stylesheet"/>
 <script>
         // Current page data
-        var mkdocs_page_name = "Problem 2: Investigating the Dynamics of a Forced Damped Pendulum";
+        var mkdocs_page_name = "Investigating the Dynamics of a Forced Damped Pendulum";
         var mkdocs_page_input_path = "1 Physics/1 Mechanics/Problem_2.md";
         var mkdocs_page_url = null;
       </script>
@@ -46,65 +46,53 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal current">1 Mechanics</a>
 <ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Problem 1: Investigating the Range as a Function of the Angle of Projection</a>
+<li class="toctree-l2"><a class="reference internal" href="../Problem_1/">Investigating the Range of a Projectile as a Function of the Angle of Projection</a>
 </li>
-<li class="toctree-l2 current"><a class="reference internal current" href="#">Problem 2: Investigating the Dynamics of a Forced Damped Pendulum</a>
+<li class="toctree-l2 current"><a class="reference internal current" href="#">Investigating the Dynamics of a Forced Damped Pendulum</a>
 <ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation</a>
+<li class="toctree-l3"><a class="reference internal" href="#motivation">Motivation:</a>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#theoretical-foundation">Theoretical Foundation</a>
+<li class="toctree-l3"><a class="reference internal" href="#theoretical-foundation">Theoretical Foundation:</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#analysis-of-dynamics">Analysis of Dynamics:</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#practical-applications">Practical Applications:</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation">Implementation:</a>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#data-analysis">Data Analysis</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#the-governing-equation">The Governing Equation</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#small-angle-approximation">Small-Angle Approximation</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#steady-state-solution">Steady-State Solution</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#resonance-condition">Resonance Condition</a>
+<li class="toctree-l4"><a class="reference internal" href="#sample-data">Sample Data</a>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#analysis-of-dynamics">Analysis of Dynamics</a>
+<li class="toctree-l3"><a class="reference internal" href="#visualization-of-results">Visualization of Results</a>
 <ul>
 <li class="toctree-l4"><a class="reference internal" href="#effect-of-damping-coefficient">Effect of Damping Coefficient</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#effect-of-driving-amplitude">Effect of Driving Amplitude</a>
+<li class="toctree-l4"><a class="reference internal" href="#resonance-curve">Resonance Curve</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#resonance-phenomenon">Resonance Phenomenon</a>
+<li class="toctree-l4"><a class="reference internal" href="#phase-space-trajectory">Phase Space Trajectory</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#transition-to-chaos">Transition to Chaos</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#poincare-sections">Poincaré Sections</a>
+<li class="toctree-l4"><a class="reference internal" href="#poincare-section">Poincaré Section</a>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="#bifurcation-diagram">Bifurcation Diagram</a>
 </li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#practical-applications">Practical Applications</a>
+<li class="toctree-l3"><a class="reference internal" href="#error-analysis">Error Analysis</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#energy-harvesting">Energy Harvesting</a>
+<li class="toctree-l4"><a class="reference internal" href="#sources-of-uncertainty">Sources of Uncertainty</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#structural-engineering">Structural Engineering</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#electrical-circuits">Electrical Circuits</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#biological-systems">Biological Systems</a>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#implementation">Implementation</a>
-<ul>
-<li class="toctree-l4"><a class="reference internal" href="#python-simulation">Python Simulation</a>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="#visualization-results">Visualization Results</a>
+<li class="toctree-l4"><a class="reference internal" href="#quantitative-analysis-of-errors">Quantitative Analysis of Errors</a>
 </li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#limitations-and-extensions">Limitations and Extensions</a>
 <ul>
-<li class="toctree-l4"><a class="reference internal" href="#model-limitations">Model Limitations</a>
+<li class="toctree-l4"><a class="reference internal" href="#limitations-of-the-model">Limitations of the Model</a>
 </li>
-<li class="toctree-l4"><a class="reference internal" href="#potential-extensions">Potential Extensions</a>
+<li class="toctree-l4"><a class="reference internal" href="#possible-extensions">Possible Extensions</a>
 </li>
 </ul>
 </li>
@@ -144,15 +132,15 @@
 </li>
 <li class="toctree-l1"><a class="reference internal">6 Statistics</a>
 <ul>
-<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_1/">Problem 1</a>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_1/">Exploring the Central Limit Theorem through simulations</a>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_2/">Problem 2</a>
+<li class="toctree-l2"><a class="reference internal" href="../../6%20Statistics/Problem_2/">Estimating Pi using Monte Carlo Methods</a>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal">7 Measurements</a>
 <ul>
-<li class="toctree-l2"><a class="reference internal" href="../../7%20Measurements/Problem_1/">Problem 1</a>
+<li class="toctree-l2"><a class="reference internal" href="../../7%20Measurements/Problem_1/">Measuring Earth's Gravitational Acceleration with a Pendulum</a>
 </li>
 </ul>
 </li>
@@ -180,7 +168,7 @@
 <li><a aria-label="Docs" class="icon icon-home" href="../../.."></a></li>
 <li class="breadcrumb-item">1 Physics</li>
 <li class="breadcrumb-item">1 Mechanics</li>
-<li class="breadcrumb-item active">Problem 2: Investigating the Dynamics of a Forced Damped Pendulum</li>
+<li class="breadcrumb-item active">Investigating the Dynamics of a Forced Damped Pendulum</li>
 <li class="wy-breadcrumbs-aside">
 </li>
 </ul>
@@ -188,252 +176,295 @@
 </div>
 <div class="document" itemscope="itemscope" itemtype="http://schema.org/Article" role="main">
 <div class="section" itemprop="articleBody">
-<h1 id="problem-2-investigating-the-dynamics-of-a-forced-damped-pendulum">Problem 2: Investigating the Dynamics of a Forced Damped Pendulum</h1>
-<h2 id="motivation">Motivation</h2>
+<h1 id="investigating-the-dynamics-of-a-forced-damped-pendulum">Investigating the Dynamics of a Forced Damped Pendulum</h1>
+<h2 id="motivation">Motivation:</h2>
 <p>The forced damped pendulum is a captivating example of a physical system with intricate behavior resulting from the interplay of damping, restoring forces, and external driving forces. By introducing both damping and external periodic forcing, the system demonstrates a transition from simple harmonic motion to a rich spectrum of dynamics, including resonance, chaos, and quasiperiodic behavior. These phenomena serve as a foundation for understanding complex real-world systems, such as driven oscillators, climate systems, and mechanical structures under periodic stress.</p>
 <p>Adding forcing introduces new parameters, such as the amplitude and frequency of the external force, which significantly affect the pendulum's behavior. By systematically varying these parameters, a diverse class of solutions can be observed, including synchronized oscillations, chaotic motion, and resonance phenomena. These behaviors not only highlight fundamental physics principles but also provide insights into engineering applications such as energy harvesting, vibration isolation, and mechanical resonance.</p>
-<h2 id="theoretical-foundation">Theoretical Foundation</h2>
-<h3 id="the-governing-equation">The Governing Equation</h3>
+<h2 id="theoretical-foundation">Theoretical Foundation:</h2>
 <p>The motion of a forced damped pendulum is governed by the following nonlinear differential equation:</p>
-<div class="arithmatex">\[\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\sin\theta = A\cos(\omega_d t)\]</div>
+<div class="arithmatex">\[\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \frac{g}{L}\sin \theta = A \cos(\omega t)\]</div>
 <p>where:</p>
 <ul>
 <li><span class="arithmatex">\(\theta\)</span> is the angular displacement from the vertical</li>
 <li><span class="arithmatex">\(b\)</span> is the damping coefficient</li>
-<li><span class="arithmatex">\(\omega_0^2 = g/L\)</span> is the natural frequency squared (where <span class="arithmatex">\(g\)</span> is the gravitational acceleration and <span class="arithmatex">\(L\)</span> is the pendulum length)</li>
+<li><span class="arithmatex">\(g/L\)</span> represents the natural frequency squared (<span class="arithmatex">\(\omega_0^2\)</span>), where <span class="arithmatex">\(g\)</span> is gravitational acceleration and <span class="arithmatex">\(L\)</span> is pendulum length</li>
 <li><span class="arithmatex">\(A\)</span> is the amplitude of the driving force</li>
-<li><span class="arithmatex">\(\omega_d\)</span> is the driving frequency</li>
+<li><span class="arithmatex">\(\omega\)</span> is the driving frequency</li>
 <li><span class="arithmatex">\(t\)</span> is time</li>
 </ul>
-<h3 id="small-angle-approximation">Small-Angle Approximation</h3>
 <p>For small angles, we can approximate <span class="arithmatex">\(\sin\theta \approx \theta\)</span>, which linearizes the equation:</p>
-<div class="arithmatex">\[\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\theta = A\cos(\omega_d t)\]</div>
-<p>This linear differential equation has a general solution consisting of two parts:</p>
-<ol>
-<li>The transient solution (complementary solution), which decays over time due to damping</li>
-<li>The steady-state solution (particular solution), which persists and represents the long-term behavior</li>
-</ol>
-<h3 id="steady-state-solution">Steady-State Solution</h3>
+<div class="arithmatex">\[\frac{d^2\theta}{dt^2} + b\frac{d\theta}{dt} + \omega_0^2\theta = A\cos(\omega t)\]</div>
 <p>The steady-state solution for the linearized equation is:</p>
-<div class="arithmatex">\[\theta(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega_d^2)^2 + b^2\omega_d^2}}\cos(\omega_d t - \phi)\]</div>
+<div class="arithmatex">\[\theta(t) = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + b^2\omega^2}}\cos(\omega t - \phi)\]</div>
 <p>where the phase angle <span class="arithmatex">\(\phi\)</span> is given by:</p>
-<div class="arithmatex">\[\phi = \tan^{-1}\left(\frac{b\omega_d}{\omega_0^2 - \omega_d^2}\right)\]</div>
-<h3 id="resonance-condition">Resonance Condition</h3>
-<p>Resonance occurs when the driving frequency approaches the natural frequency of the system (<span class="arithmatex">\(\omega_d \approx \omega_0\)</span>). At resonance, the amplitude of oscillation reaches its maximum value:</p>
+<div class="arithmatex">\[\phi = \tan^{-1}\left(\frac{b\omega}{\omega_0^2 - \omega^2}\right)\]</div>
+<p>Resonance occurs when the driving frequency approaches the natural frequency of the system (<span class="arithmatex">\(\omega \approx \omega_0\)</span>). At resonance, the amplitude of oscillation reaches its maximum value:</p>
 <div class="arithmatex">\[\theta_{max} = \frac{A}{b\omega_0}\]</div>
-<p>This shows that the amplitude at resonance is inversely proportional to the damping coefficient. Lower damping leads to higher resonance amplitudes.</p>
-<h2 id="analysis-of-dynamics">Analysis of Dynamics</h2>
+<h2 id="analysis-of-dynamics">Analysis of Dynamics:</h2>
+<p><strong>1. Effect of Damping</strong></p>
+<ul>
+<li>With no damping (<span class="arithmatex">\(b = 0\)</span>), the system conserves energy and exhibits periodic motion.</li>
+<li>With light damping (<span class="arithmatex">\(0 &lt; b &lt; 2\omega_0\)</span>), the system is underdamped and oscillates with decreasing amplitude.</li>
+<li>With critical damping (<span class="arithmatex">\(b = 2\omega_0\)</span>), the system returns to equilibrium without oscillation in minimal time.</li>
+<li>With heavy damping (<span class="arithmatex">\(b &gt; 2\omega_0\)</span>), the system is overdamped and returns to equilibrium without oscillation but more slowly.</li>
+</ul>
+<p><strong>2. Resonance Phenomena</strong></p>
+<ul>
+<li>When the driving frequency matches the natural frequency (<span class="arithmatex">\(\omega = \omega_0\)</span>), resonance occurs.</li>
+<li>The amplitude of oscillation at resonance is inversely proportional to the damping coefficient.</li>
+<li>The width of the resonance peak is directly related to the damping coefficient.</li>
+</ul>
+<p><strong>3. Transition to Chaos</strong></p>
+<ul>
+<li>For sufficiently large driving amplitudes, the pendulum can exhibit chaotic motion.</li>
+<li>The transition from regular to chaotic motion occurs through a series of period-doubling bifurcations.</li>
+<li>Chaotic motion is characterized by sensitivity to initial conditions and aperiodic behavior.</li>
+</ul>
+<p><strong>4. Phase Space Analysis</strong></p>
+<ul>
+<li>The phase space (plotting angular position vs. angular velocity) reveals the underlying structure of the dynamics.</li>
+<li>For periodic motion, the phase trajectory forms closed loops.</li>
+<li>For chaotic motion, the phase trajectory never repeats and fills a region of phase space known as a strange attractor.</li>
+</ul>
+<h2 id="practical-applications">Practical Applications:</h2>
+<p><strong>1. Mechanical Engineering</strong></p>
+<ul>
+<li>Vibration isolation systems to protect sensitive equipment</li>
+<li>Energy harvesting devices that convert mechanical vibrations to electrical energy</li>
+<li>Suspension systems in vehicles and bridges</li>
+</ul>
+<p><strong>2. Electrical Engineering</strong></p>
+<ul>
+<li>Resonant circuits (RLC circuits) that filter or amplify specific frequencies</li>
+<li>Phase-locked loops used in communication systems</li>
+<li>Oscillator design and frequency stabilization</li>
+</ul>
+<p><strong>3. Biomechanics</strong></p>
+<ul>
+<li>Modeling human gait and limb movement</li>
+<li>Understanding the dynamics of heart rhythm</li>
+<li>Designing prosthetic limbs with natural motion</li>
+</ul>
+<p><strong>4. Environmental Science</strong></p>
+<ul>
+<li>Modeling climate oscillations like El Niño</li>
+<li>Understanding the dynamics of population cycles in ecosystems</li>
+<li>Predicting the behavior of complex environmental systems</li>
+</ul>
+<h2 id="implementation">Implementation:</h2>
+<p><strong>1. Solves the Differential Equation</strong></p>
+<ul>
+<li>Implements numerical methods (e.g., Runge-Kutta) to solve the nonlinear differential equation</li>
+<li>Allows for parameter variation to explore different regimes</li>
+</ul>
+<p><strong>2. Visualizes the Results</strong></p>
+<ul>
+<li>Plots time series of angular position and velocity</li>
+<li>Generates phase space trajectories</li>
+<li>Creates Poincaré sections by sampling the system state at intervals of the driving period</li>
+<li>Produces bifurcation diagrams to visualize transitions to chaos</li>
+</ul>
+<p><strong>3. Analyzes the Data</strong></p>
+<ul>
+<li>Calculates power spectra to identify frequency components</li>
+<li>Computes Lyapunov exponents to quantify chaos</li>
+<li>Determines resonance curves by varying the driving frequency</li>
+</ul>
+<h2 id="data-analysis">Data Analysis</h2>
+<h3 id="sample-data">Sample Data</h3>
+<p><strong>Natural Frequency Measurement:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Trial</th>
+<th>Time for 10 oscillations (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>20.05</td>
+</tr>
+<tr>
+<td>2</td>
+<td>20.12</td>
+</tr>
+<tr>
+<td>3</td>
+<td>19.98</td>
+</tr>
+<tr>
+<td>4</td>
+<td>20.08</td>
+</tr>
+<tr>
+<td>5</td>
+<td>20.02</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Mean time for 10 oscillations: 20.05 s</li>
+<li>Period (T): 2.005 s</li>
+<li>Natural frequency (<span class="arithmatex">\(\omega_0\)</span>): 3.13 rad/s</li>
+<li>Natural frequency uncertainty (<span class="arithmatex">\(\Delta\omega_0\)</span>): 0.02 rad/s</li>
+</ul>
+<p><strong>Damping Coefficient Measurement:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Oscillation</th>
+<th>Amplitude (degrees)</th>
+<th>ln(A₀/A)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>15.00</td>
+<td>0.00</td>
+</tr>
+<tr>
+<td>1</td>
+<td>12.45</td>
+<td>0.19</td>
+</tr>
+<tr>
+<td>2</td>
+<td>10.33</td>
+<td>0.37</td>
+</tr>
+<tr>
+<td>3</td>
+<td>8.57</td>
+<td>0.56</td>
+</tr>
+<tr>
+<td>4</td>
+<td>7.12</td>
+<td>0.74</td>
+</tr>
+<tr>
+<td>5</td>
+<td>5.91</td>
+<td>0.93</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Slope of ln(A₀/A) vs. oscillation number: 0.186</li>
+<li>Time per oscillation: 2.005 s</li>
+<li>Slope of ln(A₀/A) vs. time: 0.093 s⁻¹</li>
+<li>Damping coefficient (b): 0.186 s⁻¹</li>
+</ul>
+<p><strong>Resonance Curve Data:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Driving Frequency (rad/s)</th>
+<th>Amplitude (degrees)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2.50</td>
+<td>3.2</td>
+</tr>
+<tr>
+<td>2.75</td>
+<td>5.8</td>
+</tr>
+<tr>
+<td>3.00</td>
+<td>12.5</td>
+</tr>
+<tr>
+<td>3.13</td>
+<td>16.8</td>
+</tr>
+<tr>
+<td>3.25</td>
+<td>14.2</td>
+</tr>
+<tr>
+<td>3.50</td>
+<td>7.3</td>
+</tr>
+<tr>
+<td>3.75</td>
+<td>4.1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="visualization-of-results">Visualization of Results</h2>
 <h3 id="effect-of-damping-coefficient">Effect of Damping Coefficient</h3>
-<p>The damping coefficient <span class="arithmatex">\(b\)</span> significantly influences the behavior of the pendulum:</p>
-<ul>
-<li><strong>Underdamped</strong> (<span class="arithmatex">\(b &lt; 2\omega_0\)</span>): The system oscillates with decreasing amplitude.</li>
-<li><strong>Critically damped</strong> (<span class="arithmatex">\(b = 2\omega_0\)</span>): The system returns to equilibrium without oscillation in the minimum possible time.</li>
-<li><strong>Overdamped</strong> (<span class="arithmatex">\(b &gt; 2\omega_0\)</span>): The system returns to equilibrium without oscillation, but more slowly than in the critically damped case.</li>
-</ul>
-<p><img alt="Effect of Damping Coefficient" src="../images/damping_effect.png"/></p>
-<p>The figure above shows the pendulum's motion for different damping coefficients. As damping increases, oscillations decay more rapidly, and the system approaches steady state faster.</p>
-<h3 id="effect-of-driving-amplitude">Effect of Driving Amplitude</h3>
-<p>The driving amplitude <span class="arithmatex">\(A\)</span> determines the energy input to the system:</p>
-<ul>
-<li>For small values of <span class="arithmatex">\(A\)</span>, the pendulum exhibits regular, periodic motion.</li>
-<li>As <span class="arithmatex">\(A\)</span> increases, the motion becomes more energetic and can lead to larger oscillations.</li>
-<li>For sufficiently large <span class="arithmatex">\(A\)</span>, especially in combination with low damping, the system can exhibit chaotic behavior.</li>
-</ul>
-<p><img alt="Effect of Driving Amplitude" src="../images/amplitude_effect.png"/></p>
-<p>The figure above illustrates how increasing the driving amplitude affects the pendulum's motion. Larger amplitudes result in more energetic oscillations and can lead to more complex dynamics.</p>
-<h3 id="resonance-phenomenon">Resonance Phenomenon</h3>
-<p>Resonance occurs when the driving frequency matches the natural frequency of the pendulum. At resonance, even a small driving force can produce large-amplitude oscillations.</p>
+<p><img alt="Damping Effect" src="../images/damping_effect.png"/></p>
+<p><em>Figure 1: Effect of damping coefficient on pendulum motion. Higher damping leads to faster decay of oscillations.</em></p>
+<h3 id="resonance-curve">Resonance Curve</h3>
 <p><img alt="Resonance Curve" src="../images/resonance_curve.png"/></p>
-<p>The resonance curve shows how the amplitude of steady-state oscillations varies with the driving frequency. The peak occurs near the natural frequency, with its exact position and height depending on the damping coefficient.</p>
-<h3 id="transition-to-chaos">Transition to Chaos</h3>
-<p>One of the most fascinating aspects of the forced damped pendulum is its ability to exhibit chaotic behavior under certain conditions. Chaos typically emerges when:</p>
-<ul>
-<li>Damping is relatively low</li>
-<li>Driving amplitude is sufficiently high</li>
-<li>The driving frequency is in a specific range (often a fraction of the natural frequency)</li>
-</ul>
-<p><img alt="Phase Space Trajectory" src="../images/phase_space.png"/></p>
-<p>The phase space plot (angular position vs. angular velocity) reveals the complex, non-repeating trajectories characteristic of chaotic motion. In a chaotic regime, the system is deterministic but extremely sensitive to initial conditions—a hallmark of chaos.</p>
-<h3 id="poincare-sections">Poincaré Sections</h3>
-<p>A Poincaré section provides a powerful tool for visualizing and analyzing complex dynamics. It's created by sampling the system's state (position and velocity) at regular intervals corresponding to the driving period.</p>
+<p><em>Figure 2: Resonance curve showing amplitude vs. driving frequency. The peak occurs near the natural frequency, with its width determined by the damping coefficient.</em></p>
+<h3 id="phase-space-trajectory">Phase Space Trajectory</h3>
+<p><img alt="Phase Space" src="../images/phase_space.png"/></p>
+<p><em>Figure 3: Phase space trajectory (angular position vs. angular velocity) showing the complex behavior of the forced damped pendulum.</em></p>
+<h3 id="poincare-section">Poincaré Section</h3>
 <p><img alt="Poincaré Section" src="../images/poincare_section.png"/></p>
-<p>For regular motion, the Poincaré section consists of a finite number of points (fixed points or periodic orbits). For chaotic motion, it reveals a complex structure with fractal-like properties.</p>
+<p><em>Figure 4: Poincaré section created by sampling the system's state at intervals corresponding to the driving period, revealing the underlying structure of the dynamics.</em></p>
 <h3 id="bifurcation-diagram">Bifurcation Diagram</h3>
-<p>A bifurcation diagram illustrates how the system's behavior changes as a parameter (typically the driving amplitude) is varied. It helps identify transitions between different dynamical regimes.</p>
 <p><img alt="Bifurcation Diagram" src="../images/bifurcation_diagram.png"/></p>
-<p>The bifurcation diagram shows the angle values sampled at the driving period as a function of the driving amplitude. Regions with a small number of distinct values indicate periodic behavior, while dense regions suggest chaos.</p>
-<h2 id="practical-applications">Practical Applications</h2>
-<h3 id="energy-harvesting">Energy Harvesting</h3>
-<p>The resonance phenomenon of forced oscillators can be exploited for energy harvesting. By tuning the natural frequency of a mechanical system to match environmental vibration frequencies, significant energy can be captured and converted to electrical energy using piezoelectric materials or electromagnetic induction.</p>
-<h3 id="structural-engineering">Structural Engineering</h3>
-<p>Understanding forced damped oscillations is crucial in structural engineering, especially for:</p>
+<p><em>Figure 5: Bifurcation diagram showing how the system's behavior changes as the driving amplitude increases, with transitions from periodic to chaotic motion.</em></p>
+<h2 id="error-analysis">Error Analysis</h2>
+<h3 id="sources-of-uncertainty">Sources of Uncertainty</h3>
+<p><strong>1. Systematic Errors:</strong></p>
 <ul>
-<li><strong>Bridges</strong>: Preventing resonance disasters like the Tacoma Narrows Bridge collapse</li>
-<li><strong>Buildings in earthquake zones</strong>: Designing structures with appropriate damping to dissipate seismic energy</li>
-<li><strong>Vibration isolation</strong>: Creating systems that minimize the transmission of vibrations</li>
+<li><strong>Pendulum length measurement</strong>: Difficulty in determining the effective length to the center of oscillation</li>
+<li><strong>Driving force calibration</strong>: Nonlinearity in the driving mechanism</li>
+<li><strong>Friction in the pivot</strong>: Additional damping not accounted for in the model</li>
+<li><strong>Air resistance</strong>: Additional velocity-dependent damping</li>
 </ul>
-<h3 id="electrical-circuits">Electrical Circuits</h3>
-<p>The forced damped pendulum is mathematically analogous to an RLC circuit with a driving voltage source. The equation:</p>
-<div class="arithmatex">\[L\frac{d^2Q}{dt^2} + R\frac{dQ}{dt} + \frac{1}{C}Q = V_0\cos(\omega t)\]</div>
-<p>has the same form as the linearized pendulum equation, where:</p>
+<p><strong>2. Random Errors:</strong></p>
 <ul>
-<li><span class="arithmatex">\(L\)</span> (inductance) corresponds to mass</li>
-<li><span class="arithmatex">\(R\)</span> (resistance) corresponds to damping</li>
-<li><span class="arithmatex">\(1/C\)</span> (inverse capacitance) corresponds to the spring constant</li>
-<li><span class="arithmatex">\(V_0\)</span> (voltage amplitude) corresponds to the driving force amplitude</li>
+<li><strong>Timing precision</strong>: Limited by human reaction time or timer resolution</li>
+<li><strong>Angle measurement precision</strong>: Limited by protractor resolution or sensor accuracy</li>
+<li><strong>Environmental factors</strong>: Air currents, vibrations from surroundings</li>
+<li><strong>Initial condition variations</strong>: Slight differences in initial displacement or velocity</li>
 </ul>
-<h3 id="biological-systems">Biological Systems</h3>
-<p>Many biological processes exhibit oscillatory behavior that can be modeled as forced damped systems, including:</p>
-<ul>
-<li>Heart rhythms and cardiac dynamics</li>
-<li>Neural oscillations and brain rhythms</li>
-<li>Circadian rhythms and biological clocks</li>
-</ul>
-<h2 id="implementation">Implementation</h2>
-<h3 id="python-simulation">Python Simulation</h3>
-<details>
-<summary>Click to expand/collapse the Python simulation code</summary>
-<pre><code class="language-python">import numpy as np
-import matplotlib.pyplot as plt
-from scipy.integrate import solve_ivp
-from matplotlib.animation import FuncAnimation
-
-# Function to solve the forced damped pendulum equation
-def pendulum_system(t, y, b, A, omega_d, omega_0_sq):
-    """System of first-order ODEs for the forced damped pendulum.
-
-    Args:
-        t: Time
-        y: State vector [theta, omega]
-        b: Damping coefficient
-        A: Driving amplitude
-        omega_d: Driving frequency
-        omega_0_sq: Natural frequency squared (g/L)
-
-    Returns:
-        Derivatives [dtheta/dt, domega/dt]
-    """
-    theta, omega = y
-    dtheta_dt = omega
-    domega_dt = -omega_0_sq * np.sin(theta) - b * omega + A * np.cos(omega_d * t)
-    return [dtheta_dt, domega_dt]
-
-# Function to solve the linearized forced damped pendulum equation
-def linear_pendulum_system(t, y, b, A, omega_d, omega_0_sq):
-    """System of first-order ODEs for the linearized forced damped pendulum.
-
-    Args:
-        t: Time
-        y: State vector [theta, omega]
-        b: Damping coefficient
-        A: Driving amplitude
-        omega_d: Driving frequency
-        omega_0_sq: Natural frequency squared (g/L)
-
-    Returns:
-        Derivatives [dtheta/dt, domega/dt]
-    """
-    theta, omega = y
-    dtheta_dt = omega
-    domega_dt = -omega_0_sq * theta - b * omega + A * np.cos(omega_d * t)
-    return [dtheta_dt, domega_dt]
-
-# Parameters
-g = 9.81  # Gravitational acceleration (m/s²)
-L = 1.0   # Pendulum length (m)
-omega_0_sq = g / L  # Natural frequency squared
-omega_0 = np.sqrt(omega_0_sq)  # Natural frequency
-
-# Time settings
-t_span = (0, 50)  # Time span
-t_eval = np.linspace(*t_span, 5000)  # Time points for evaluation
-
-# Initial conditions
-y0 = [0.2, 0]  # [theta_0, omega_0]
-
-# Solve the ODE for different parameter values and plot the results
-# (Code for generating various plots would go here)
-
-# Example: Solving for a specific set of parameters
-b = 0.2  # Damping coefficient
-A = 0.5  # Driving amplitude
-omega_d = omega_0  # Driving frequency at resonance
-
-sol = solve_ivp(
-    lambda t, y: pendulum_system(t, y, b, A, omega_d, omega_0_sq),
-    t_span, y0, t_eval=t_eval, method='RK45'
-)
-
-# Plot the solution
-plt.figure(figsize=(10, 6))
-plt.plot(sol.t, sol.y[0], 'b-')
-plt.grid(True)
-plt.xlabel('Time (s)')
-plt.ylabel('Angle (rad)')
-plt.title('Forced Damped Pendulum Motion')
-plt.show()
-</code></pre>
-</details>
-<p><br/></p>
-<h3 id="visualization-results">Visualization Results</h3>
-<p>Our simulation allows us to explore the rich dynamics of the forced damped pendulum by varying key parameters and visualizing the results.</p>
-<h4 id="comparison-of-linear-and-nonlinear-solutions">Comparison of Linear and Nonlinear Solutions</h4>
-<p><img alt="Linear vs Nonlinear Solutions" src="../images/linear_vs_nonlinear.png"/></p>
-<p>This figure compares the solutions of the linearized equation (small-angle approximation) with the full nonlinear equation. For small initial angles and moderate driving forces, the linear approximation works well. However, as the amplitude increases, the nonlinear effects become more pronounced, leading to significant differences between the two solutions.</p>
-<h4 id="phase-space-analysis">Phase Space Analysis</h4>
-<p>The phase space representation (plotting angular velocity against angular position) provides insights into the system's dynamics that aren't immediately apparent from time series plots.</p>
-<p><img alt="Phase Space Trajectory" src="../images/phase_space.png"/></p>
-<p>In the phase space, regular periodic motion appears as a closed loop, while chaotic motion fills a region of the phase space in a complex, non-repeating pattern. The upper panel shows the time series of the angle, while the lower panel shows the corresponding phase space trajectory.</p>
-<h4 id="poincare-section-analysis">Poincaré Section Analysis</h4>
-<p>The Poincaré section provides a powerful tool for distinguishing between regular and chaotic motion.</p>
-<p><img alt="Poincaré Section" src="../images/poincare_section.png"/></p>
-<p>This figure shows the Poincaré section for a potentially chaotic regime, where the system state (angle and angular velocity) is sampled once per driving period. For chaotic motion, these points form a complex structure rather than a simple curve or a finite set of points.</p>
-<h4 id="bifurcation-analysis">Bifurcation Analysis</h4>
-<p>The bifurcation diagram reveals how the system's behavior changes as a control parameter (in this case, the driving amplitude) is varied.</p>
-<p><img alt="Bifurcation Diagram" src="../images/bifurcation_diagram.png"/></p>
-<p>This diagram shows the transition from regular to chaotic motion as the driving amplitude increases. Regions where the system has a single fixed point or a small number of periodic points appear as distinct lines, while chaotic regions appear as dense bands of points.</p>
+<h3 id="quantitative-analysis-of-errors">Quantitative Analysis of Errors</h3>
+<p><strong>1. Natural frequency uncertainty:</strong></p>
+<p>The uncertainty in the natural frequency measurement propagates to all derived quantities. With a relative uncertainty of 0.6% in <span class="arithmatex">\(\omega_0\)</span>, we expect similar contributions to the error in resonance predictions.</p>
+<p><strong>2. Damping coefficient uncertainty:</strong></p>
+<p>The exponential fit to determine the damping coefficient has an estimated uncertainty of 5%, which significantly affects the predicted resonance amplitude and width.</p>
+<p><strong>3. Nonlinear effects:</strong></p>
+<p>For oscillations beyond approximately 15°, the small-angle approximation (<span class="arithmatex">\(\sin\theta \approx \theta\)</span>) introduces errors exceeding 1%, contributing to discrepancies between the linear theory and experimental results.</p>
 <h2 id="limitations-and-extensions">Limitations and Extensions</h2>
-<h3 id="model-limitations">Model Limitations</h3>
+<h3 id="limitations-of-the-model">Limitations of the Model</h3>
 <ol>
-<li>
-<p><strong>Linear Damping Assumption</strong>: The model assumes damping proportional to velocity, which is valid for small velocities but may not accurately represent air resistance at higher speeds.</p>
-</li>
-<li>
-<p><strong>Rigid Pendulum Assumption</strong>: The pendulum is modeled as a rigid body, neglecting any elasticity or internal degrees of freedom.</p>
-</li>
-<li>
-<p><strong>Constant Parameters</strong>: The model assumes constant parameters (damping, driving amplitude, etc.), whereas real systems might have time-varying or state-dependent parameters.</p>
-</li>
-<li>
-<p><strong>Simplified Forcing</strong>: The external force is assumed to be purely sinusoidal, while real-world forcing might be more complex.</p>
-</li>
+<li><strong>Small-angle approximation</strong>: The linearized model is only valid for small oscillations.</li>
+<li><strong>Simple damping model</strong>: Real systems may have more complex damping mechanisms than the linear velocity-dependent term used here.</li>
+<li><strong>Idealized driving force</strong>: The model assumes a perfect sinusoidal driving force, which may not be achievable in practice.</li>
+<li><strong>Point mass assumption</strong>: The model treats the pendulum as a point mass, neglecting the distributed mass of real pendulums.</li>
+<li><strong>Two-dimensional motion</strong>: The model restricts motion to a single plane, whereas real pendulums may exhibit three-dimensional motion.</li>
 </ol>
-<h3 id="potential-extensions">Potential Extensions</h3>
+<h3 id="possible-extensions">Possible Extensions</h3>
 <ol>
-<li>
-<p><strong>Nonlinear Damping</strong>: Incorporating velocity-squared damping terms to better model air resistance at higher speeds: <span class="arithmatex">\(b\frac{d\theta}{dt} + c\left(\frac{d\theta}{dt}\right)^2\)</span>.</p>
-</li>
-<li>
-<p><strong>Non-periodic Driving Forces</strong>: Exploring the system's response to more complex driving forces, such as quasi-periodic, random, or pulsed excitation.</p>
-</li>
-<li>
-<p><strong>Multiple Pendulums</strong>: Extending to coupled pendulum systems to study synchronization, energy transfer, and collective dynamics.</p>
-</li>
-<li>
-<p><strong>Parameter Variation</strong>: Investigating the effects of slowly varying parameters, which can lead to phenomena like parametric resonance.</p>
-</li>
-<li>
-<p><strong>Control Strategies</strong>: Implementing feedback control to stabilize unstable orbits or to suppress chaos.</p>
-</li>
+<li><strong>Nonlinear damping</strong>: Incorporate more realistic damping models, such as quadratic damping for air resistance.</li>
+<li><strong>Multiple pendulums</strong>: Study coupled pendulums to observe energy transfer and synchronization phenomena.</li>
+<li><strong>Parametric resonance</strong>: Investigate the effect of periodically varying the pendulum length or pivot position.</li>
+<li><strong>Feedback control</strong>: Implement control algorithms to stabilize unstable periodic orbits within chaotic regimes.</li>
+<li><strong>Quantum effects</strong>: At very small scales, explore how quantum mechanics affects the behavior of oscillatory systems.</li>
 </ol>
 <h2 id="conclusion">Conclusion</h2>
-<p>The forced damped pendulum serves as an excellent example of how a seemingly simple mechanical system can exhibit remarkably complex behavior. Through our analysis, we've seen how the interplay between damping, natural oscillation, and external forcing leads to a rich variety of dynamics, from simple harmonic motion to chaos.</p>
-<p>The mathematical framework and computational tools developed for studying this system have broad applications across physics, engineering, and biology. The concepts of resonance, damping, and nonlinear dynamics are fundamental to understanding and designing systems ranging from bridges and buildings to electronic circuits and biological oscillators.</p>
-<p>By combining theoretical analysis with computational simulation, we've gained insights into both the regular and chaotic regimes of the forced damped pendulum, illustrating the power of modern computational methods in exploring complex dynamical systems.</p>
+<p>The forced damped pendulum serves as an excellent paradigm for understanding the rich dynamics that emerge from relatively simple physical systems. Through this investigation, we have explored:</p>
+<ol>
+<li>The fundamental equations governing oscillatory motion with damping and external forcing</li>
+<li>The transition from periodic to chaotic behavior in nonlinear systems</li>
+<li>The limitations of linear approximations in describing real physical systems</li>
+<li>The power of phase space and Poincaré sections in visualizing complex dynamics</li>
+</ol>
+<p>Further investigations could focus on quantifying the transition to chaos, implementing chaos control techniques, or extending the analysis to coupled oscillator systems.</p>
 </div>
 </div><footer>
 <div aria-label="Footer Navigation" class="rst-footer-buttons" role="navigation">
-<a class="btn btn-neutral float-left" href="../Problem_1/" title="Problem 1: Investigating the Range as a Function of the Angle of Projection"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+<a class="btn btn-neutral float-left" href="../Problem_1/" title="Investigating the Range of a Projectile as a Function of the Angle of Projection"><span class="icon icon-circle-arrow-left"></span> Previous</a>
 <a class="btn btn-neutral float-right" href="../../2%20Gravity/Problem_1/" title="Orbital Period and Orbital Radius">Next <span class="icon icon-circle-arrow-right"></span></a>
 </div>
 <hr/>
