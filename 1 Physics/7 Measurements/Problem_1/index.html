@@ -311,9 +311,18 @@
 <p>To verify the theoretical relationship between period and pendulum length, we can perform additional measurements with different pendulum lengths and plot the results.</p>
 <p><img alt="Period vs Length" src="../images/pendulum_period_length.png"/></p>
 <p><em>Figure 2: Relationship between pendulum period and square root of length. The linear relationship confirms the theoretical prediction that <span class="arithmatex">\(T \propto \sqrt{L}\)</span>.</em></p>
+<p>This graph shows the linear relationship between the pendulum period (<span class="arithmatex">\(T\)</span>) and the square root of the pendulum length (<span class="arithmatex">\(\sqrt{L}\)</span>). The data points follow a straight line, confirming the theoretical prediction from the simple pendulum equation.</p>
+<p>The slope of this line is related to the gravitational acceleration by:</p>
+<p><span class="arithmatex">\(T = 2\pi\sqrt{\frac{L}{g}} \implies T = \frac{2\pi}{\sqrt{g}}\sqrt{L}\)</span></p>
+<p>Thus, the slope equals <span class="arithmatex">\(\frac{2\pi}{\sqrt{g}}\)</span>, allowing us to calculate <span class="arithmatex">\(g\)</span> from the slope of the best-fit line.</p>
 <h3 id="measurement-precision-analysis">Measurement Precision Analysis</h3>
 <p><img alt="Measurement Distribution" src="../images/pendulum_measurement_distribution.png"/></p>
 <p><em>Figure 3: Distribution of period measurements showing the spread around the mean value. The histogram approximates a normal distribution, as expected for random measurement errors.</em></p>
+<p>This histogram shows the distribution of period measurements around the mean value. The bell-shaped curve indicates that the measurement errors follow a normal distribution, which is expected for random errors in experimental measurements.</p>
+<p>The standard deviation (<span class="arithmatex">\(\sigma\)</span>) of this distribution quantifies the precision of our measurements:</p>
+<p><span class="arithmatex">\(\sigma = \sqrt{\frac{\sum_{i=1}^{n}(T_i - \overline{T})^2}{n-1}}\)</span></p>
+<p>The standard error of the mean (SEM) decreases with the square root of the number of measurements:</p>
+<p><span class="arithmatex">\(SEM = \frac{\sigma}{\sqrt{n}}\)</span></p>
 <h2 id="error-analysis">Error Analysis</h2>
 <h3 id="sources-of-uncertainty">Sources of Uncertainty</h3>
 <p><strong>1. Systematic Errors:</strong></p>

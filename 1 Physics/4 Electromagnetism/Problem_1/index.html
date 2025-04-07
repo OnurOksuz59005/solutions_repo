@@ -253,38 +253,40 @@
 <p>In a uniform magnetic field, a charged particle exhibits cyclotron motion, moving in a circular path perpendicular to the field direction.</p>
 <p><img alt="Uniform Magnetic Field" src="../images/uniform_magnetic_field.png"/>
 <em>Figure 1: 3D trajectory of a charged particle in a uniform magnetic field (B along z-axis)</em></p>
+<p>This 3D visualization shows a charged particle moving in a uniform magnetic field. The particle follows a helical path, combining circular motion in the plane perpendicular to the field with constant velocity along the field direction.</p>
+<p>The radius of the circular motion (Larmor radius) is given by:</p>
+<p><span class="arithmatex">\(r_L = \frac{mv_\perp}{|q|B}\)</span></p>
+<p>Where <span class="arithmatex">\(m\)</span> is the particle mass, <span class="arithmatex">\(v_\perp\)</span> is the velocity perpendicular to the field, <span class="arithmatex">\(q\)</span> is the charge, and <span class="arithmatex">\(B\)</span> is the magnetic field strength.</p>
 <p><img alt="Uniform Magnetic Field 2D" src="../images/uniform_magnetic_field_2d.png"/>
 <em>Figure 2: Top view showing the circular motion of a charged particle in a uniform magnetic field. The dashed circle represents the theoretical Larmor radius.</em></p>
-<p><strong>Key Observations:</strong></p>
-<ul>
-<li>The particle moves in a circular path in the plane perpendicular to the magnetic field</li>
-<li>The Larmor radius is determined by the particle's mass, charge, velocity, and the magnetic field strength</li>
-<li>The cyclotron frequency depends only on the charge-to-mass ratio and the magnetic field strength</li>
-</ul>
+<p>This 2D top-down view clearly shows the circular motion in the plane perpendicular to the magnetic field. The dashed circle indicates the theoretical Larmor radius calculated from the formula.</p>
+<p>The frequency of this circular motion (cyclotron frequency) is:</p>
+<p><span class="arithmatex">\(\omega_c = \frac{|q|B}{m}\)</span></p>
+<p>The period of one complete orbit is <span class="arithmatex">\(T = \frac{2\pi}{\omega_c}\)</span>.</p>
 <h3 id="crossed-eb-fields">Crossed E×B Fields</h3>
 <p>When both electric and magnetic fields are present and perpendicular to each other, the particle exhibits a drift motion perpendicular to both fields.</p>
 <p><img alt="Crossed Fields 3D" src="../images/crossed_fields_3d.png"/>
 <em>Figure 3: 3D trajectory of a charged particle in crossed E×B fields. E is along +y, B is along +z.</em></p>
-<p><strong>Key Observations:</strong></p>
-<ul>
-<li>The particle exhibits cyclotron motion superimposed with a drift in the E×B direction (along +x)</li>
-<li>The drift velocity matches the theoretical prediction: <span class="arithmatex">\(\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}\)</span></li>
-<li>The drift is independent of the particle's charge and mass</li>
-</ul>
+<p>This 3D plot shows the trajectory of a charged particle in perpendicular electric and magnetic fields. The particle exhibits a combination of circular motion and drift, resulting in a cycloidal path that progresses in the E×B direction.</p>
+<p>The drift velocity is given by:</p>
+<p><span class="arithmatex">\(\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}\)</span></p>
+<p>This drift velocity is independent of the particle's charge, mass, and initial velocity.</p>
 <p><img alt="Crossed Fields 2D" src="../images/crossed_fields.png"/>
 <em>Figure 4: 2D trajectory (XY plane) of the E×B drift, showing the characteristic cycloidal motion. E is along +y, B is along +z (out of page).</em></p>
+<p>This 2D view in the XY plane clearly shows the cycloidal motion resulting from the E×B drift. The particle moves in loops while drifting in the direction perpendicular to both the electric and magnetic fields. The green arrow indicates the electric field direction, while the blue circle with dot represents the magnetic field pointing out of the page.</p>
 <h3 id="magnetic-bottle">Magnetic Bottle</h3>
 <p>In a non-uniform magnetic field that increases in strength away from the center (magnetic bottle), charged particles can be trapped if their pitch angle is sufficient.</p>
 <p><img alt="Magnetic Bottle Trajectory" src="../images/magnetic_bottle_trajectory.png"/>
-<em>Figure 5: 2D trajectory (XY plane) of a charged particle in a magnetic bottle. The blue line represents the B field along the z-axis.</em></p>
+<em>Figure 5: 3D trajectory of a charged particle in a magnetic bottle. The blue dashed line represents the central B-field axis.</em></p>
+<p>This 3D visualization shows a charged particle trapped in a magnetic bottle configuration. The particle spirals around field lines while bouncing back and forth between regions of stronger magnetic field at each end of the bottle.</p>
+<p>The magnetic moment is conserved during the motion:</p>
+<p><span class="arithmatex">\(\mu = \frac{mv_\perp^2}{2B}\)</span></p>
+<p>Where <span class="arithmatex">\(v_\perp\)</span> is the velocity component perpendicular to the magnetic field.</p>
 <p><img alt="Magnetic Bottle Static" src="../images/magnetic_bottle_static.png"/>
-<em>Figure 6: Static view of a charged particle trajectory in a magnetic bottle. The blue line represents the B field along the z-axis.</em></p>
-<p><strong>Key Observations:</strong></p>
-<ul>
-<li>The particle is reflected at the high-field regions (magnetic mirrors)</li>
-<li>The magnetic moment <span class="arithmatex">\(\mu = \frac{mv_\perp^2}{2B}\)</span> is conserved during the motion</li>
-<li>The particle's pitch angle determines whether it will be trapped or escape</li>
-</ul>
+<em>Figure 6: Schematic view of a magnetic bottle showing converging field lines. The particle (red) spirals along these field lines.</em></p>
+<p>This schematic illustration shows the converging magnetic field lines that form the bottle shape. A charged particle with sufficient pitch angle will be reflected at the regions of stronger field (the "bottlenecks").</p>
+<p>The condition for particle trapping depends on the pitch angle <span class="arithmatex">\(\alpha\)</span> and the mirror ratio <span class="arithmatex">\(R = \frac{B_{max}}{B_{min}}\)</span>:</p>
+<p><span class="arithmatex">\(\sin^2\alpha &gt; \frac{1}{R}\)</span></p>
 <h2 id="verification-results">Verification Results</h2>
 <p>The simulation results were verified against theoretical predictions to ensure accuracy.</p>
 <h3 id="uniform-magnetic-field_1">Uniform Magnetic Field</h3>

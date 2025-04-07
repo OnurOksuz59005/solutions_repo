@@ -342,13 +342,31 @@
 <h2 id="visualization-of-results">Visualization of Results</h2>
 <h3 id="range-vs-angle-plot">Range vs. Angle Plot</h3>
 <p><img alt="Range vs. Angle" src="../images/range_vs_angle.png"/></p>
-<p><em>Figure 1: Measured range as a function of launch angle (blue points) compared with the theoretical prediction (red curve).</em></p>
+<p><em>Figure 1: Measured range as a function of launch angle (blue points) compared with the theoretical prediction (green curve).</em></p>
+<p>This graph shows how far the projectile travels (range) when launched at different angles. The blue dots are from our simulation, and the green curve is what physics equations predict. You can see that launching at 45° gives the maximum distance.</p>
+<p>The theoretical range is calculated using the formula:</p>
+<p><span class="arithmatex">\(R = \frac{v_0^2 \sin(2\theta)}{g}\)</span></p>
+<p>Where <span class="arithmatex">\(v_0\)</span> is the initial velocity, <span class="arithmatex">\(\theta\)</span> is the launch angle, and <span class="arithmatex">\(g\)</span> is the acceleration due to gravity (9.8 m/s<span class="arithmatex">\(^2\)</span>).</p>
 <h3 id="trajectory-comparison">Trajectory Comparison</h3>
 <p><img alt="Trajectory Comparison" src="../images/trajectory_comparison.png"/></p>
 <p><em>Figure 2: Trajectories for different launch angles (15°, 30°, 45°, 60°, 75°) showing the parabolic paths.</em></p>
+<p>This graph shows the actual paths taken by projectiles launched at different angles. Each colored line is a different launch angle. Notice how:</p>
+<ul>
+<li>Lower angles (15°, 30°) create flatter paths that don't go very high</li>
+<li>The 45° angle (middle path) goes the farthest distance</li>
+<li>Higher angles (60°, 75°) make the projectile go higher but land closer to the starting point</li>
+</ul>
+<p>The path of any projectile follows these equations:</p>
+<p><span class="arithmatex">\(x = (v_0 \cos\theta)t\)</span></p>
+<p><span class="arithmatex">\(y = (v_0 \sin\theta)t - \frac{1}{2}gt^2\)</span></p>
+<p>Where <span class="arithmatex">\(x\)</span> and <span class="arithmatex">\(y\)</span> are the horizontal and vertical positions, <span class="arithmatex">\(t\)</span> is time, <span class="arithmatex">\(v_0\)</span> is initial velocity, <span class="arithmatex">\(\theta\)</span> is launch angle, and <span class="arithmatex">\(g\)</span> is gravity.</p>
 <h3 id="effect-of-initial-velocity">Effect of Initial Velocity</h3>
 <p><img alt="Effect of Initial Velocity" src="../images/range_vs_velocity.png"/></p>
 <p><em>Figure 3: Effect of initial velocity on the range for a fixed launch angle of 45°.</em></p>
+<p>This graph demonstrates how launch speed affects distance. When launching at the optimal 45° angle, throwing or shooting something faster makes it go much farther. In fact, doubling the speed makes the projectile go four times as far!</p>
+<p>For the optimal angle of 45°, the range formula simplifies to:</p>
+<p><span class="arithmatex">\(R = \frac{v_0^2}{g}\)</span></p>
+<p>This quadratic relationship (<span class="arithmatex">\(R \propto v_0^2\)</span>) explains why doubling the initial velocity quadruples the range.</p>
 <h2 id="error-analysis">Error Analysis</h2>
 <h3 id="sources-of-uncertainty">Sources of Uncertainty</h3>
 <p><strong>1. Systematic Errors:</strong></p>

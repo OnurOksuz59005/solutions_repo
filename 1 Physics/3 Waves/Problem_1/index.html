@@ -192,8 +192,16 @@
 </ul>
 <p><img alt="Triangle Interference Pattern" src="../images/triangle_interference_2d.png"/></p>
 <p><em>Figure 1: 2D interference pattern for three point sources arranged in an equilateral triangle. The color map represents the displacement amplitude, with bright regions indicating constructive interference and dark regions indicating destructive interference.</em></p>
+<p>This 2D visualization shows the interference pattern created by three wave sources positioned at the vertices of an equilateral triangle. The bright areas represent constructive interference where waves reinforce each other, while dark areas show destructive interference where waves cancel out.</p>
+<p>The total wave displacement at any point <span class="arithmatex">\((x,y)\)</span> is the sum of contributions from each source:</p>
+<p><span class="arithmatex">\(\eta_{sum}(x,y,t) = \sum_{i=1}^{3} \frac{A}{\sqrt{r_i}} \cos(kr_i - \omega t + \phi_i)\)</span></p>
+<p>Where <span class="arithmatex">\(r_i\)</span> is the distance from source <span class="arithmatex">\(i\)</span> to point <span class="arithmatex">\((x,y)\)</span>.</p>
 <p><img alt="Triangle 3D Interference Pattern" src="../images/triangle_interference_3d.png"/></p>
 <p><em>Figure 2: 3D visualization of the interference pattern for three point sources arranged in an equilateral triangle. The height represents the displacement amplitude, showing the wave peaks and troughs across the water surface.</em></p>
+<p>This 3D representation shows the same interference pattern as Figure 1, but with height representing the wave amplitude. The peaks (high points) and troughs (low points) clearly show how the waves combine at different locations.</p>
+<p>Constructive interference occurs when waves arrive in phase, satisfying:</p>
+<p><span class="arithmatex">\(|r_i - r_j| = n\lambda\)</span></p>
+<p>Where <span class="arithmatex">\(n\)</span> is an integer and <span class="arithmatex">\(\lambda\)</span> is the wavelength.</p>
 <h3 id="square-configuration-4-vertices">Square Configuration (4 Vertices)</h3>
 <p>For a square, four wave sources are placed at the vertices. The interference pattern shows:</p>
 <ul>
@@ -204,8 +212,15 @@
 </ul>
 <p><img alt="Square Interference Pattern" src="../images/square_interference_2d.png"/></p>
 <p><em>Figure 3: 2D interference pattern for four point sources arranged in a square. The pattern shows four-fold rotational symmetry with distinct regions of constructive and destructive interference.</em></p>
+<p>This image shows the interference pattern created by four wave sources at the corners of a square. The four-fold symmetry creates a more complex pattern than the triangle configuration, with additional nodal lines (dark regions) where waves cancel out.</p>
+<p>The total displacement is calculated by summing the contributions from all four sources:</p>
+<p><span class="arithmatex">\(\eta_{sum}(x,y,t) = \sum_{i=1}^{4} \frac{A}{\sqrt{r_i}} \cos(kr_i - \omega t + \phi_i)\)</span></p>
 <p><img alt="Square 3D Interference Pattern" src="../images/square_interference_3d.png"/></p>
 <p><em>Figure 4: 3D visualization of the interference pattern for four point sources arranged in a square, showing the complex wave structure resulting from the superposition of waves.</em></p>
+<p>The 3D visualization of the square configuration reveals the complex wave structure with multiple peaks and valleys. The central region shows strong constructive interference where waves from all four sources can arrive approximately in phase.</p>
+<p>Destructive interference occurs when waves arrive out of phase, satisfying:</p>
+<p><span class="arithmatex">\(|r_i - r_j| = (n+\frac{1}{2})\lambda\)</span></p>
+<p>Where <span class="arithmatex">\(n\)</span> is an integer.</p>
 <h3 id="pentagon-configuration-5-vertices">Pentagon Configuration (5 Vertices)</h3>
 <p>For a pentagon, five wave sources are placed at the vertices. The interference pattern shows:</p>
 <ul>
@@ -216,8 +231,13 @@
 </ul>
 <p><img alt="Pentagon Interference Pattern" src="../images/pentagon_interference_2d.png"/></p>
 <p><em>Figure 5: 2D interference pattern for five point sources arranged in a regular pentagon. The five-fold symmetry creates a more complex pattern with multiple rings of constructive and destructive interference.</em></p>
+<p>This 2D pattern shows the interference created by five wave sources at the vertices of a regular pentagon. The five-fold symmetry produces a more intricate pattern with five primary axes of constructive interference extending from the center.</p>
+<p>The intensity of the interference pattern at any point is proportional to the square of the amplitude:</p>
+<p><span class="arithmatex">\(I(x,y) \propto |\eta_{sum}(x,y,t)|^2\)</span></p>
 <p><img alt="Pentagon 3D Interference Pattern" src="../images/pentagon_interference_3d.png"/></p>
 <p><em>Figure 6: 3D visualization of the interference pattern for five point sources arranged in a regular pentagon, showing the intricate wave structure with multiple peaks and valleys.</em></p>
+<p>The 3D representation of the pentagon configuration highlights the complex wave structure with concentric rings of peaks and valleys. The pattern becomes more intricate compared to configurations with fewer sources.</p>
+<p>As the number of sources increases, the central constructive interference becomes more pronounced due to the increased number of waves arriving in phase at the center.</p>
 <h3 id="hexagon-configuration-6-vertices">Hexagon Configuration (6 Vertices)</h3>
 <p>For a hexagon, six wave sources are placed at the vertices. The interference pattern shows:</p>
 <ul>
@@ -228,8 +248,16 @@
 </ul>
 <p><img alt="Hexagon Interference Pattern" src="../images/hexagon_interference_2d.png"/></p>
 <p><em>Figure 7: 2D interference pattern for six point sources arranged in a regular hexagon. The six-fold symmetry results in a highly ordered pattern with clear radial and angular structure.</em></p>
+<p>This image shows the interference pattern from six wave sources arranged in a regular hexagon. The six-fold symmetry creates a highly ordered pattern with six primary axes of constructive interference and multiple concentric rings.</p>
+<p>The wave number <span class="arithmatex">\(k\)</span> determines the spatial frequency of the pattern:</p>
+<p><span class="arithmatex">\(k = \frac{2\pi}{\lambda}\)</span></p>
+<p>Smaller wavelengths (larger <span class="arithmatex">\(k\)</span>) would create more closely spaced interference fringes.</p>
 <p><img alt="Hexagon 3D Interference Pattern" src="../images/hexagon_interference_3d.png"/></p>
 <p><em>Figure 8: 3D visualization of the interference pattern for six point sources arranged in a regular hexagon, showing the complex wave structure with multiple concentric rings of peaks and valleys.</em></p>
+<p>The 3D visualization of the hexagon configuration shows the most complex interference pattern of all the configurations. The wave structure exhibits multiple concentric rings of peaks and valleys with clear six-fold symmetry.</p>
+<p>The amplitude of the waves decreases with distance from the sources according to:</p>
+<p><span class="arithmatex">\(A(r) \propto \frac{1}{\sqrt{r}}\)</span></p>
+<p>This decay factor accounts for the spreading of wave energy in two dimensions.</p>
 <h2 id="error-analysis">Error Analysis</h2>
 <h3 id="numerical-approximations">Numerical Approximations</h3>
 <p>The simulation involves several numerical approximations that can affect the accuracy of the results:</p>

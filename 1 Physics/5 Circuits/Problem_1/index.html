@@ -523,24 +523,40 @@ def calculate_equivalent_resistance(G, source, target):
 <h4 id="example-1-simple-series-circuit">Example 1: Simple Series Circuit</h4>
 <p>A simple series circuit with three resistors (10kΩ, 20kΩ, and 30kΩ) connected in series.</p>
 <p><img alt="Simple Series Circuit" src="../images/example_1_circuit.png"/></p>
+<p>This graph represents a simple series circuit where three resistors are connected end-to-end, forming a single path for current flow. The algorithm identifies nodes with exactly two connections and sequentially reduces them.</p>
 <p><strong>Calculation:</strong>
 <span class="arithmatex">\(R_{eq} = R_1 + R_2 + R_3 = 10k\Omega + 20k\Omega + 30k\Omega = 60k\Omega\)</span></p>
-<p>The algorithm correctly calculates the equivalent resistance as 60kΩ.</p>
+<p>In series circuits, the equivalent resistance is the sum of all individual resistances because the same current flows through each resistor, following Kirchhoff's current law.</p>
 <h4 id="example-2-simple-parallel-circuit">Example 2: Simple Parallel Circuit</h4>
 <p>A simple parallel circuit with two resistors (10kΩ and 20kΩ) connected in parallel.</p>
 <p><img alt="Simple Parallel Circuit" src="../images/example_2_circuit.png"/></p>
+<p>This graph shows a parallel circuit where two resistors connect the same pair of nodes, providing multiple paths for current flow. The algorithm identifies parallel edges between nodes and combines them using the parallel resistance formula.</p>
 <p><strong>Calculation:</strong>
 <span class="arithmatex">\(\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} = \frac{1}{10k\Omega} + \frac{1}{20k\Omega} = \frac{2}{20k\Omega} + \frac{1}{20k\Omega} = \frac{3}{20k\Omega}\)</span></p>
 <p><span class="arithmatex">\(R_{eq} = \frac{20k\Omega}{3} \approx 6.67k\Omega\)</span></p>
-<p>The algorithm correctly calculates the equivalent resistance as 6.67kΩ.</p>
+<p>In parallel circuits, the equivalent conductance (1/R) is the sum of individual conductances, as voltage is the same across all resistors according to Kirchhoff's voltage law.</p>
 <h4 id="example-3-mixed-series-parallel-circuit">Example 3: Mixed Series-Parallel Circuit</h4>
 <p>A more complex circuit with a combination of series and parallel connections.</p>
 <p><img alt="Mixed Series-Parallel Circuit" src="../images/example_3_circuit.png"/></p>
-<p>The algorithm reduces this circuit step by step, first identifying series connections and then parallel connections, until the equivalent resistance is calculated.</p>
+<p>This graph represents a mixed circuit containing both series and parallel elements. The algorithm systematically reduces this circuit by alternating between series and parallel reductions until only two nodes remain.</p>
+<p>For mixed circuits, the reduction follows a specific order:</p>
+<ol>
+<li>Identify and reduce series connections: <span class="arithmatex">\(R_{series} = R_1 + R_2\)</span></li>
+<li>Identify and reduce parallel connections: <span class="arithmatex">\(\frac{1}{R_{parallel}} = \frac{1}{R_1} + \frac{1}{R_2}\)</span></li>
+<li>Repeat until the circuit is fully reduced</li>
+</ol>
+<p>This systematic approach works for any circuit that can be reduced using only series and parallel combinations.</p>
 <h4 id="example-4-wheatstone-bridge-circuit">Example 4: Wheatstone Bridge Circuit</h4>
 <p>A Wheatstone bridge circuit, which is a more complex configuration that includes a bridge resistor.</p>
 <p><img alt="Wheatstone Bridge Circuit" src="../images/example_4_circuit.png"/></p>
-<p>This circuit requires multiple reduction steps, including both series and parallel reductions.</p>
+<p>This graph shows a Wheatstone bridge circuit, a more complex configuration with a bridge resistor creating multiple paths between nodes. The algorithm handles this by performing a sequence of series and parallel reductions.</p>
+<p>For bridge circuits, the equivalent resistance cannot be calculated using simple series-parallel reductions alone if we need the resistance between non-adjacent nodes. In such cases, we can use:</p>
+<ol>
+<li>Delta-Wye (Δ-Y) transformations</li>
+<li>Nodal analysis using Kirchhoff's laws</li>
+<li>Star-mesh transformations</li>
+</ol>
+<p>The graph theory approach elegantly handles these complex cases by representing the circuit topology and systematically applying reduction rules.</p>
 <h2 id="analysis-and-efficiency">Analysis and Efficiency</h2>
 <h3 id="algorithm-efficiency">Algorithm Efficiency</h3>
 <p>The time complexity of the algorithm depends on the number of nodes and edges in the circuit graph:</p>
