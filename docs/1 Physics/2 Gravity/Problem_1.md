@@ -179,17 +179,49 @@ $$r = \left(\frac{G M_{Earth} T^2}{4\pi^2}\right)^{1/3} = \left(\frac{6.67430 \t
 
 *Figure 1: Verification of Kepler's Third Law showing the relationship between orbital period squared and orbital radius cubed.*
 
+This graph demonstrates the linear relationship between the square of the orbital period ($T^2$) and the cube of the orbital radius ($r^3$) for planets in our solar system. The straight line confirms Kepler's Third Law.
+
+The relationship is expressed mathematically as:
+
+$T^2 = \frac{4\pi^2}{GM}r^3$
+
+Where $G$ is the gravitational constant and $M$ is the mass of the central body (the Sun).
+
 ![Kepler's Law Log-Log Plot](./images/keplers_law_loglog.png)
 
 *Figure 2: Log-log plot of orbital period vs. orbital radius for the planets in the Solar System, demonstrating the power law relationship.*
+
+This log-log plot shows orbital period versus orbital radius for the planets. The linear relationship on a log-log scale confirms the power law relationship between these quantities.
+
+On a log-log scale, Kepler's Third Law appears as:
+
+$\log(T) = \frac{3}{2}\log(r) + \log\left(\frac{2\pi}{\sqrt{GM}}\right)$
+
+The slope of approximately 3/2 confirms that $T \propto r^{3/2}$.
 
 ![Solar System Orbits](./images/solar_system_orbits.png)
 
 *Figure 3: Simulated orbits of the planets in the Solar System, showing their relative distances from the Sun.*
 
+This visualization shows the simulated orbits of planets in our solar system to scale. The vast differences in orbital radii illustrate why outer planets have much longer orbital periods than inner planets.
+
+For each planet, the orbital velocity can be calculated using:
+
+$v = \sqrt{\frac{GM}{r}}$
+
+This explains why planets closer to the Sun orbit faster than those farther away.
+
 ![Earth-Moon System](./images/earth_moon_system.png)
 
 *Figure 4: Simulation of the Earth-Moon system, illustrating the application of Kepler's Third Law to a satellite orbiting a planet.*
+
+This simulation shows the Earth-Moon system, demonstrating how Kepler's Third Law applies not just to planets orbiting the Sun, but to any satellite-primary body system.
+
+For the Earth-Moon system, we can determine Earth's mass using:
+
+$M_{Earth} = \frac{4\pi^2 r^3}{G T^2}$
+
+Where $r$ is the Moon's orbital radius and $T$ is its orbital period.
 
 ## Conclusions
 

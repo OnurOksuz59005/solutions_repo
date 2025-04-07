@@ -124,11 +124,29 @@ To verify the theoretical relationship between period and pendulum length, we ca
 
 *Figure 2: Relationship between pendulum period and square root of length. The linear relationship confirms the theoretical prediction that $T \propto \sqrt{L}$.*
 
+This graph shows the linear relationship between the pendulum period ($T$) and the square root of the pendulum length ($\sqrt{L}$). The data points follow a straight line, confirming the theoretical prediction from the simple pendulum equation.
+
+The slope of this line is related to the gravitational acceleration by:
+
+$T = 2\pi\sqrt{\frac{L}{g}} \implies T = \frac{2\pi}{\sqrt{g}}\sqrt{L}$
+
+Thus, the slope equals $\frac{2\pi}{\sqrt{g}}$, allowing us to calculate $g$ from the slope of the best-fit line.
+
 ### Measurement Precision Analysis
 
 ![Measurement Distribution](./images/pendulum_measurement_distribution.png)
 
 *Figure 3: Distribution of period measurements showing the spread around the mean value. The histogram approximates a normal distribution, as expected for random measurement errors.*
+
+This histogram shows the distribution of period measurements around the mean value. The bell-shaped curve indicates that the measurement errors follow a normal distribution, which is expected for random errors in experimental measurements.
+
+The standard deviation ($\sigma$) of this distribution quantifies the precision of our measurements:
+
+$\sigma = \sqrt{\frac{\sum_{i=1}^{n}(T_i - \overline{T})^2}{n-1}}$
+
+The standard error of the mean (SEM) decreases with the square root of the number of measurements:
+
+$SEM = \frac{\sigma}{\sqrt{n}}$
 
 ## Error Analysis
 

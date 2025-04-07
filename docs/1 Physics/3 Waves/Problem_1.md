@@ -46,9 +46,25 @@ For a triangle, three wave sources are placed at the vertices of an equilateral 
 
 *Figure 1: 2D interference pattern for three point sources arranged in an equilateral triangle. The color map represents the displacement amplitude, with bright regions indicating constructive interference and dark regions indicating destructive interference.*
 
+This 2D visualization shows the interference pattern created by three wave sources positioned at the vertices of an equilateral triangle. The bright areas represent constructive interference where waves reinforce each other, while dark areas show destructive interference where waves cancel out.
+
+The total wave displacement at any point $(x,y)$ is the sum of contributions from each source:
+
+$\eta_{sum}(x,y,t) = \sum_{i=1}^{3} \frac{A}{\sqrt{r_i}} \cos(kr_i - \omega t + \phi_i)$
+
+Where $r_i$ is the distance from source $i$ to point $(x,y)$.
+
 ![Triangle 3D Interference Pattern](./images/triangle_interference_3d.png)
 
 *Figure 2: 3D visualization of the interference pattern for three point sources arranged in an equilateral triangle. The height represents the displacement amplitude, showing the wave peaks and troughs across the water surface.*
+
+This 3D representation shows the same interference pattern as Figure 1, but with height representing the wave amplitude. The peaks (high points) and troughs (low points) clearly show how the waves combine at different locations.
+
+Constructive interference occurs when waves arrive in phase, satisfying:
+
+$|r_i - r_j| = n\lambda$
+
+Where $n$ is an integer and $\lambda$ is the wavelength.
 
 ### Square Configuration (4 Vertices)
 
@@ -63,9 +79,23 @@ For a square, four wave sources are placed at the vertices. The interference pat
 
 *Figure 3: 2D interference pattern for four point sources arranged in a square. The pattern shows four-fold rotational symmetry with distinct regions of constructive and destructive interference.*
 
+This image shows the interference pattern created by four wave sources at the corners of a square. The four-fold symmetry creates a more complex pattern than the triangle configuration, with additional nodal lines (dark regions) where waves cancel out.
+
+The total displacement is calculated by summing the contributions from all four sources:
+
+$\eta_{sum}(x,y,t) = \sum_{i=1}^{4} \frac{A}{\sqrt{r_i}} \cos(kr_i - \omega t + \phi_i)$
+
 ![Square 3D Interference Pattern](./images/square_interference_3d.png)
 
 *Figure 4: 3D visualization of the interference pattern for four point sources arranged in a square, showing the complex wave structure resulting from the superposition of waves.*
+
+The 3D visualization of the square configuration reveals the complex wave structure with multiple peaks and valleys. The central region shows strong constructive interference where waves from all four sources can arrive approximately in phase.
+
+Destructive interference occurs when waves arrive out of phase, satisfying:
+
+$|r_i - r_j| = (n+\frac{1}{2})\lambda$
+
+Where $n$ is an integer.
 
 ### Pentagon Configuration (5 Vertices)
 
@@ -80,9 +110,19 @@ For a pentagon, five wave sources are placed at the vertices. The interference p
 
 *Figure 5: 2D interference pattern for five point sources arranged in a regular pentagon. The five-fold symmetry creates a more complex pattern with multiple rings of constructive and destructive interference.*
 
+This 2D pattern shows the interference created by five wave sources at the vertices of a regular pentagon. The five-fold symmetry produces a more intricate pattern with five primary axes of constructive interference extending from the center.
+
+The intensity of the interference pattern at any point is proportional to the square of the amplitude:
+
+$I(x,y) \propto |\eta_{sum}(x,y,t)|^2$
+
 ![Pentagon 3D Interference Pattern](./images/pentagon_interference_3d.png)
 
 *Figure 6: 3D visualization of the interference pattern for five point sources arranged in a regular pentagon, showing the intricate wave structure with multiple peaks and valleys.*
+
+The 3D representation of the pentagon configuration highlights the complex wave structure with concentric rings of peaks and valleys. The pattern becomes more intricate compared to configurations with fewer sources.
+
+As the number of sources increases, the central constructive interference becomes more pronounced due to the increased number of waves arriving in phase at the center.
 
 ### Hexagon Configuration (6 Vertices)
 
@@ -97,9 +137,25 @@ For a hexagon, six wave sources are placed at the vertices. The interference pat
 
 *Figure 7: 2D interference pattern for six point sources arranged in a regular hexagon. The six-fold symmetry results in a highly ordered pattern with clear radial and angular structure.*
 
+This image shows the interference pattern from six wave sources arranged in a regular hexagon. The six-fold symmetry creates a highly ordered pattern with six primary axes of constructive interference and multiple concentric rings.
+
+The wave number $k$ determines the spatial frequency of the pattern:
+
+$k = \frac{2\pi}{\lambda}$
+
+Smaller wavelengths (larger $k$) would create more closely spaced interference fringes.
+
 ![Hexagon 3D Interference Pattern](./images/hexagon_interference_3d.png)
 
 *Figure 8: 3D visualization of the interference pattern for six point sources arranged in a regular hexagon, showing the complex wave structure with multiple concentric rings of peaks and valleys.*
+
+The 3D visualization of the hexagon configuration shows the most complex interference pattern of all the configurations. The wave structure exhibits multiple concentric rings of peaks and valleys with clear six-fold symmetry.
+
+The amplitude of the waves decreases with distance from the sources according to:
+
+$A(r) \propto \frac{1}{\sqrt{r}}$
+
+This decay factor accounts for the spreading of wave energy in two dimensions.
 
 ## Error Analysis
 

@@ -112,6 +112,12 @@ The following chart compares the escape velocities (second cosmic velocity) for 
 
 *Figure 1: Escape velocities comparison.*
 
+This chart compares the escape velocities (second cosmic velocity) for various celestial bodies in our solar system. The escape velocity is calculated using:
+
+$$v_{escape} = \sqrt{\frac{2GM}{r}}$$
+
+Where $G$ is the gravitational constant, $M$ is the mass of the celestial body, and $r$ is its radius. Jupiter has the highest escape velocity due to its large mass, while smaller bodies like the Moon have much lower escape velocities.
+
 As shown, the escape velocity varies significantly across celestial bodies, with Jupiter requiring the highest velocity for escape due to its large mass, while the Moon has a relatively low escape velocity. The escape velocity is directly proportional to the square root of the mass of the celestial body and inversely proportional to the square root of its radius.
 
 ## Detailed Comparison of Earth and Jupiter
@@ -122,6 +128,14 @@ The following chart compares all three cosmic velocities for Earth and Jupiter:
 
 *Figure 2: Cosmic velocities comparison for Earth and Jupiter.*
 
+This chart compares all three cosmic velocities for Earth and Jupiter:
+
+1. First cosmic velocity (orbital velocity): $v_1 = \sqrt{\frac{GM}{r}}$
+2. Second cosmic velocity (escape velocity): $v_2 = \sqrt{\frac{2GM}{r}} = \sqrt{2} \cdot v_1$
+3. Third cosmic velocity (Solar System escape): $v_3 = \sqrt{\frac{2GM_{Sun}}{r_{orbit}}} + v_{planet}$
+
+Jupiter requires higher first and second cosmic velocities due to its greater mass, but has a lower third cosmic velocity because of its greater distance from the Sun.
+
 This comparison illustrates how the cosmic velocities scale with the mass of the celestial body. Jupiter, being much more massive than Earth, requires significantly higher velocities for both orbiting and escaping. However, the third cosmic velocity is lower for Jupiter because of its greater distance from the Sun, demonstrating the inverse square root relationship with distance.
 
 ## Variation with Distance
@@ -131,6 +145,12 @@ The escape velocity decreases as the distance from the center of a celestial bod
 ![Escape Velocity vs Distance](./images/escape_velocity_vs_distance.png)
 
 *Figure 3: Escape velocity vs distance.*
+
+This graph illustrates how escape velocity decreases with distance from the center of a celestial body according to the inverse square root relationship:
+
+$$v_2 = \sqrt{\frac{2GM}{r}}$$
+
+The x-axis is normalized to the radius of each body (Earth, Mars, and Jupiter), showing that the relationship follows the same pattern regardless of the body's size. At infinite distance, the escape velocity approaches zero.
 
 This graph shows how the escape velocity decreases with distance for Earth, Mars, and Jupiter according to the inverse square root relationship: $v_2 = \sqrt{\frac{2GM}{r}}$. The x-axis is normalized to the radius of each body, showing that the relationship follows the same pattern regardless of the body's size. At infinite distance, the escape velocity approaches zero.
 
@@ -144,6 +164,16 @@ The following animation illustrates the difference between an orbital trajectory
 
 *Figure 4: Animation comparing orbital and escape trajectories.*
 
+This animation demonstrates the fundamental difference between:
+
+1. Orbital trajectory (first cosmic velocity): The object follows a closed circular or elliptical path with negative total energy $E < 0$
+   $v_1 = \sqrt{\frac{GM}{r}}$
+
+2. Escape trajectory (second cosmic velocity): The object follows an open hyperbolic path with non-negative total energy $E \geq 0$
+   $v_2 = \sqrt{\frac{2GM}{r}}$
+
+The total energy determines whether an object remains bound to the gravitational field or escapes to infinity.
+
 With the first cosmic velocity, an object follows a closed circular or elliptical path around the central body, maintaining a constant total energy $E < 0$. With the second cosmic velocity, the object follows an open hyperbolic path that allows it to escape the gravitational influence of the central body, with total energy $E ≥ 0$.
 
 **Solar System Escape**
@@ -153,6 +183,12 @@ The third cosmic velocity enables a spacecraft to escape the Solar System entire
 ![Solar System Escape](./images/solar_system_escape.gif)
 
 *Figure 5: Animation showing Solar System escape trajectory.*
+
+This animation illustrates a spacecraft achieving the third cosmic velocity, which allows it to escape the Solar System entirely. The third cosmic velocity is calculated as:
+
+$$v_3 = \sqrt{\frac{2GM_{Sun}}{r_{orbit}}} + v_{planet}$$
+
+Where $r_{orbit}$ is the distance of the planet from the Sun, and $v_{planet}$ is the orbital velocity of the planet. The spacecraft's trajectory becomes hyperbolic relative to the Sun, enabling it to reach interstellar space.
 
 This animation shows a spacecraft leaving Earth's orbit with sufficient velocity to escape the Sun's gravitational field, demonstrating the concept of the third cosmic velocity. The trajectory becomes hyperbolic relative to the Sun, allowing the spacecraft to reach interstellar space.
 

@@ -409,10 +409,12 @@ A simple series circuit with three resistors (10kΩ, 20kΩ, and 30kΩ) connected
 
 ![Simple Series Circuit](./images/example_1_circuit.png)
 
+This graph represents a simple series circuit where three resistors are connected end-to-end, forming a single path for current flow. The algorithm identifies nodes with exactly two connections and sequentially reduces them.
+
 **Calculation:**
 $R_{eq} = R_1 + R_2 + R_3 = 10k\Omega + 20k\Omega + 30k\Omega = 60k\Omega$
 
-The algorithm correctly calculates the equivalent resistance as 60kΩ.
+In series circuits, the equivalent resistance is the sum of all individual resistances because the same current flows through each resistor, following Kirchhoff's current law.
 
 #### Example 2: Simple Parallel Circuit
 
@@ -420,12 +422,14 @@ A simple parallel circuit with two resistors (10kΩ and 20kΩ) connected in para
 
 ![Simple Parallel Circuit](./images/example_2_circuit.png)
 
+This graph shows a parallel circuit where two resistors connect the same pair of nodes, providing multiple paths for current flow. The algorithm identifies parallel edges between nodes and combines them using the parallel resistance formula.
+
 **Calculation:**
 $\frac{1}{R_{eq}} = \frac{1}{R_1} + \frac{1}{R_2} = \frac{1}{10k\Omega} + \frac{1}{20k\Omega} = \frac{2}{20k\Omega} + \frac{1}{20k\Omega} = \frac{3}{20k\Omega}$
 
 $R_{eq} = \frac{20k\Omega}{3} \approx 6.67k\Omega$
 
-The algorithm correctly calculates the equivalent resistance as 6.67kΩ.
+In parallel circuits, the equivalent conductance (1/R) is the sum of individual conductances, as voltage is the same across all resistors according to Kirchhoff's voltage law.
 
 #### Example 3: Mixed Series-Parallel Circuit
 
@@ -433,7 +437,15 @@ A more complex circuit with a combination of series and parallel connections.
 
 ![Mixed Series-Parallel Circuit](./images/example_3_circuit.png)
 
-The algorithm reduces this circuit step by step, first identifying series connections and then parallel connections, until the equivalent resistance is calculated.
+This graph represents a mixed circuit containing both series and parallel elements. The algorithm systematically reduces this circuit by alternating between series and parallel reductions until only two nodes remain.
+
+For mixed circuits, the reduction follows a specific order:
+
+1. Identify and reduce series connections: $R_{series} = R_1 + R_2$
+2. Identify and reduce parallel connections: $\frac{1}{R_{parallel}} = \frac{1}{R_1} + \frac{1}{R_2}$
+3. Repeat until the circuit is fully reduced
+
+This systematic approach works for any circuit that can be reduced using only series and parallel combinations.
 
 #### Example 4: Wheatstone Bridge Circuit
 
@@ -441,7 +453,15 @@ A Wheatstone bridge circuit, which is a more complex configuration that includes
 
 ![Wheatstone Bridge Circuit](./images/example_4_circuit.png)
 
-This circuit requires multiple reduction steps, including both series and parallel reductions.
+This graph shows a Wheatstone bridge circuit, a more complex configuration with a bridge resistor creating multiple paths between nodes. The algorithm handles this by performing a sequence of series and parallel reductions.
+
+For bridge circuits, the equivalent resistance cannot be calculated using simple series-parallel reductions alone if we need the resistance between non-adjacent nodes. In such cases, we can use:
+
+1. Delta-Wye (Δ-Y) transformations
+2. Nodal analysis using Kirchhoff's laws
+3. Star-mesh transformations
+
+The graph theory approach elegantly handles these complex cases by representing the circuit topology and systematically applying reduction rules.
 
 ## Analysis and Efficiency
 

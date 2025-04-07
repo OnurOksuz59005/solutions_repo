@@ -92,14 +92,24 @@ In a uniform magnetic field, a charged particle exhibits cyclotron motion, movin
 ![Uniform Magnetic Field](./images/uniform_magnetic_field.png)
 *Figure 1: 3D trajectory of a charged particle in a uniform magnetic field (B along z-axis)*
 
+This 3D visualization shows a charged particle moving in a uniform magnetic field. The particle follows a helical path, combining circular motion in the plane perpendicular to the field with constant velocity along the field direction.
+
+The radius of the circular motion (Larmor radius) is given by:
+
+$r_L = \frac{mv_\perp}{|q|B}$
+
+Where $m$ is the particle mass, $v_\perp$ is the velocity perpendicular to the field, $q$ is the charge, and $B$ is the magnetic field strength.
+
 ![Uniform Magnetic Field 2D](./images/uniform_magnetic_field_2d.png)
 *Figure 2: Top view showing the circular motion of a charged particle in a uniform magnetic field. The dashed circle represents the theoretical Larmor radius.*
 
-**Key Observations:**
+This 2D top-down view clearly shows the circular motion in the plane perpendicular to the magnetic field. The dashed circle indicates the theoretical Larmor radius calculated from the formula.
 
-- The particle moves in a circular path in the plane perpendicular to the magnetic field
-- The Larmor radius is determined by the particle's mass, charge, velocity, and the magnetic field strength
-- The cyclotron frequency depends only on the charge-to-mass ratio and the magnetic field strength
+The frequency of this circular motion (cyclotron frequency) is:
+
+$\omega_c = \frac{|q|B}{m}$
+
+The period of one complete orbit is $T = \frac{2\pi}{\omega_c}$.
 
 ### Crossed E×B Fields
 
@@ -108,30 +118,42 @@ When both electric and magnetic fields are present and perpendicular to each oth
 ![Crossed Fields 3D](./images/crossed_fields_3d.png)
 *Figure 3: 3D trajectory of a charged particle in crossed E×B fields. E is along +y, B is along +z.*
 
-**Key Observations:**
+This 3D plot shows the trajectory of a charged particle in perpendicular electric and magnetic fields. The particle exhibits a combination of circular motion and drift, resulting in a cycloidal path that progresses in the E×B direction.
 
-- The particle exhibits cyclotron motion superimposed with a drift in the E×B direction (along +x)
-- The drift velocity matches the theoretical prediction: $\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}$
-- The drift is independent of the particle's charge and mass
+The drift velocity is given by:
+
+$\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}$
+
+This drift velocity is independent of the particle's charge, mass, and initial velocity.
 
 ![Crossed Fields 2D](./images/crossed_fields.png)
 *Figure 4: 2D trajectory (XY plane) of the E×B drift, showing the characteristic cycloidal motion. E is along +y, B is along +z (out of page).*
+
+This 2D view in the XY plane clearly shows the cycloidal motion resulting from the E×B drift. The particle moves in loops while drifting in the direction perpendicular to both the electric and magnetic fields. The green arrow indicates the electric field direction, while the blue circle with dot represents the magnetic field pointing out of the page.
 
 ### Magnetic Bottle
 
 In a non-uniform magnetic field that increases in strength away from the center (magnetic bottle), charged particles can be trapped if their pitch angle is sufficient.
 
 ![Magnetic Bottle Trajectory](./images/magnetic_bottle_trajectory.png)
-*Figure 5: 2D trajectory (XY plane) of a charged particle in a magnetic bottle. The blue line represents the B field along the z-axis.*
+*Figure 5: 3D trajectory of a charged particle in a magnetic bottle. The blue dashed line represents the central B-field axis.*
+
+This 3D visualization shows a charged particle trapped in a magnetic bottle configuration. The particle spirals around field lines while bouncing back and forth between regions of stronger magnetic field at each end of the bottle.
+
+The magnetic moment is conserved during the motion:
+
+$\mu = \frac{mv_\perp^2}{2B}$
+
+Where $v_\perp$ is the velocity component perpendicular to the magnetic field.
 
 ![Magnetic Bottle Static](./images/magnetic_bottle_static.png)
-*Figure 6: Static view of a charged particle trajectory in a magnetic bottle. The blue line represents the B field along the z-axis.*
+*Figure 6: Schematic view of a magnetic bottle showing converging field lines. The particle (red) spirals along these field lines.*
 
-**Key Observations:**
+This schematic illustration shows the converging magnetic field lines that form the bottle shape. A charged particle with sufficient pitch angle will be reflected at the regions of stronger field (the "bottlenecks").
 
-- The particle is reflected at the high-field regions (magnetic mirrors)
-- The magnetic moment $\mu = \frac{mv_\perp^2}{2B}$ is conserved during the motion
-- The particle's pitch angle determines whether it will be trapped or escape
+The condition for particle trapping depends on the pitch angle $\alpha$ and the mirror ratio $R = \frac{B_{max}}{B_{min}}$:
+
+$\sin^2\alpha > \frac{1}{R}$
 
 ## Verification Results
 

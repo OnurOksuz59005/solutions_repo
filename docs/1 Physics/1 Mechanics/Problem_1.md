@@ -113,7 +113,15 @@ To simulate projectile motion and visualize the results, we developed a computat
 
 ![Range vs. Angle](./images/range_vs_angle.png)
 
-*Figure 1: Measured range as a function of launch angle (blue points) compared with the theoretical prediction (red curve).*
+*Figure 1: Measured range as a function of launch angle (blue points) compared with the theoretical prediction (green curve).*
+
+This graph shows how far the projectile travels (range) when launched at different angles. The blue dots are from our simulation, and the green curve is what physics equations predict. You can see that launching at 45° gives the maximum distance.
+
+The theoretical range is calculated using the formula:
+
+$R = \frac{v_0^2 \sin(2\theta)}{g}$
+
+Where $v_0$ is the initial velocity, $\theta$ is the launch angle, and $g$ is the acceleration due to gravity (9.8 m/s$^2$).
 
 ### Trajectory Comparison
 
@@ -121,11 +129,33 @@ To simulate projectile motion and visualize the results, we developed a computat
 
 *Figure 2: Trajectories for different launch angles (15°, 30°, 45°, 60°, 75°) showing the parabolic paths.*
 
+This graph shows the actual paths taken by projectiles launched at different angles. Each colored line is a different launch angle. Notice how:
+
+- Lower angles (15°, 30°) create flatter paths that don't go very high
+- The 45° angle (middle path) goes the farthest distance
+- Higher angles (60°, 75°) make the projectile go higher but land closer to the starting point
+
+The path of any projectile follows these equations:
+
+$x = (v_0 \cos\theta)t$
+
+$y = (v_0 \sin\theta)t - \frac{1}{2}gt^2$
+
+Where $x$ and $y$ are the horizontal and vertical positions, $t$ is time, $v_0$ is initial velocity, $\theta$ is launch angle, and $g$ is gravity.
+
 ### Effect of Initial Velocity
 
 ![Effect of Initial Velocity](./images/range_vs_velocity.png)
 
 *Figure 3: Effect of initial velocity on the range for a fixed launch angle of 45°.*
+
+This graph demonstrates how launch speed affects distance. When launching at the optimal 45° angle, throwing or shooting something faster makes it go much farther. In fact, doubling the speed makes the projectile go four times as far!
+
+For the optimal angle of 45°, the range formula simplifies to:
+
+$R = \frac{v_0^2}{g}$
+
+This quadratic relationship ($R \propto v_0^2$) explains why doubling the initial velocity quadruples the range.
 
 ## Error Analysis
 

@@ -165,11 +165,27 @@ $$\theta_{max} = \frac{A}{b\omega_0}$$
 
 *Figure 1: Effect of damping coefficient on pendulum motion. Higher damping leads to faster decay of oscillations.*
 
+This graph shows how different damping coefficients affect the pendulum's motion over time. Each curve represents a different damping value, with higher damping causing oscillations to decay more rapidly.
+
+For an underdamped system, the angular displacement follows:
+
+$\theta(t) = \theta_0 e^{-\frac{b}{2}t} \cos(\omega_d t + \phi)$
+
+Where $\omega_d = \sqrt{\omega_0^2 - (\frac{b}{2})^2}$ is the damped frequency.
+
 ### Resonance Curve
 
 ![Resonance Curve](./images/resonance_curve.png)
 
 *Figure 2: Resonance curve showing amplitude vs. driving frequency. The peak occurs near the natural frequency, with its width determined by the damping coefficient.*
+
+This plot demonstrates how the amplitude of oscillation varies with driving frequency. The peak occurs when the driving frequency matches the pendulum's natural frequency, creating resonance.
+
+The amplitude as a function of driving frequency follows:
+
+$\theta_{max} = \frac{A}{\sqrt{(\omega_0^2 - \omega^2)^2 + b^2\omega^2}}$
+
+At resonance ($\omega = \omega_0$), the amplitude reaches its maximum value: $\theta_{max} = \frac{A}{b\omega_0}$
 
 ### Phase Space Trajectory
 
@@ -177,17 +193,32 @@ $$\theta_{max} = \frac{A}{b\omega_0}$$
 
 *Figure 3: Phase space trajectory (angular position vs. angular velocity) showing the complex behavior of the forced damped pendulum.*
 
+This phase space plot shows the relationship between the pendulum's angular position ($\theta$) and angular velocity ($\dot{\theta}$). Each point represents the state of the system at a specific time, and the trajectory shows how the state evolves.
+
+For periodic motion, the trajectory forms closed loops. For chaotic motion, the trajectory never repeats exactly and fills a region of phase space known as a strange attractor.
+
 ### Poincaré Section
 
 ![Poincaré Section](./images/poincare_section.png)
 
 *Figure 4: Poincaré section created by sampling the system's state at intervals corresponding to the driving period, revealing the underlying structure of the dynamics.*
 
+This Poincaré section is created by sampling the pendulum's state ($\theta$ and $\dot{\theta}$) at regular intervals corresponding to the driving period. Each point represents the system state at times $t = nT$, where $T = \frac{2\pi}{\omega}$ is the driving period and $n$ is an integer.
+
+The pattern of points reveals the underlying structure of the dynamics:
+- A single point indicates period-1 motion (same as driving period)
+- Multiple distinct points indicate period-n motion
+- A cloud of points indicates chaotic motion
+
 ### Bifurcation Diagram
 
 ![Bifurcation Diagram](./images/bifurcation_diagram.png)
 
 *Figure 5: Bifurcation diagram showing how the system's behavior changes as the driving amplitude increases, with transitions from periodic to chaotic motion.*
+
+This bifurcation diagram illustrates how the pendulum's behavior changes as the driving amplitude ($A$) increases. The horizontal axis represents different values of the driving amplitude, while the vertical axis shows the possible angular positions ($\theta$) at regular sampling intervals.
+
+The diagram reveals the transition from periodic to chaotic motion through period-doubling bifurcations. As the driving amplitude increases, the system undergoes transitions where the number of possible states doubles (1→2→4→8→...) before entering a chaotic regime.
 
 ## Error Analysis
 
