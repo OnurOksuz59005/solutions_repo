@@ -206,6 +206,7 @@ For periodic motion, the trajectory forms closed loops. For chaotic motion, the 
 This Poincaré section is created by sampling the pendulum's state ($\theta$ and $\dot{\theta}$) at regular intervals corresponding to the driving period. Each point represents the system state at times $t = nT$, where $T = \frac{2\pi}{\omega}$ is the driving period and $n$ is an integer.
 
 The pattern of points reveals the underlying structure of the dynamics:
+
 - A single point indicates period-1 motion (same as driving period)
 - Multiple distinct points indicate period-n motion
 - A cloud of points indicates chaotic motion
