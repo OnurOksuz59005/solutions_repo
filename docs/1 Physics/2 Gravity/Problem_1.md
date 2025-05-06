@@ -1,18 +1,5 @@
 # Orbital Period and Orbital Radius
 
-## Task
-
-1. Derive Kepler's Third Law from Newton's Law of Universal Gravitation.
-2. Verify the relationship between orbital period and orbital radius using data from the Solar System.
-3. Implement a computational model to simulate and visualize orbital motion.
-4. Analyze the implications of Kepler's Third Law for space exploration and astronomy.
-
-## Deliverables
-
-1. A Markdown document with Python script or notebook implementing the simulations.
-2. A detailed explanation of the theoretical foundation and derivation.
-3. Graphical representations of orbital periods and radii for various celestial bodies.
-
 ## Motivation
 
 The relationship between the square of the orbital period and the cube of the orbital radius, known as Kepler's Third Law, is a cornerstone of celestial mechanics. This simple yet profound relationship allows for the determination of planetary motions and has implications for understanding gravitational interactions on both local and cosmic scales. By analyzing this relationship, one can connect fundamental principles of gravity with real-world phenomena such as satellite orbits and planetary systems.
