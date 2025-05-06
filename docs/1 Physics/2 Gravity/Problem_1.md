@@ -28,6 +28,7 @@ $$F_g = F_c$$
 $$G \frac{M m}{r^2} = m \frac{v^2}{r}$$
 
 Where:
+
 - $M$ is the mass of the central body
 - $m$ is the mass of the orbiting body
 - $v$ is the orbital velocity
