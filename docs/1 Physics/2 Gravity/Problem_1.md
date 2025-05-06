@@ -138,26 +138,6 @@ $$r = \left(\frac{G M_{Earth} T^2}{4\pi^2}\right)^{1/3} = \left(\frac{6.67430 \t
 - Investigating deviations from Kepler's laws due to relativistic effects
 - Exploring the limits of Newtonian mechanics
 
-## Implementation
-
-**Solves the Orbital Equations**
-
-- Implements numerical methods to solve the equations of motion for orbiting bodies
-- Allows for parameter variation to explore different orbital scenarios
-- Handles both circular and elliptical orbits
-
-**Visualizes the Results**
-
-- Plots orbital trajectories for various initial conditions
-- Generates graphs showing the relationship between orbital period and radius
-- Creates animations of orbital motion
-
-**Analyzes the Data**
-
-- Calculates orbital parameters from simulation results
-- Verifies Kepler's Third Law across different scenarios
-- Compares theoretical predictions with observational data
-
 ## Computational Model and Visualization
 
 **Visualization Results**
